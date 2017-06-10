@@ -33,6 +33,12 @@
                         Login
                     </md-button>
                 </md-menu-item>
+                <md-menu-item ng-if="!$ctrl.isAuthenticated()">
+                    <md-button ng-click="$ctrl.signup($event)">
+                        <md-icon md-menu-align-target><ng-md-icon icon="person_add" ></ng-md-icon></md-icon>
+                        Signup
+                    </md-button>
+                </md-menu-item>
             </md-menu-content>
         </md-menu>
 

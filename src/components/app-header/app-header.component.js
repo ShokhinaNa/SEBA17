@@ -50,6 +50,11 @@ class AppHeaderComponentController{
         this.$state.go('login',{});
     }
 
+    signup(){
+        this.$state.go('signup',{});
+    }
+
+
     logout(){
         this.UserService.logout();
         this.$state.go('movies',{});
