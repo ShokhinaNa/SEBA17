@@ -6,9 +6,14 @@ import MovieEditComponent from './../components/view-movie-edit/view-movie-edit.
 import MovieCreateComponent from './../components/view-movie-create/view-movie-create.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import SignupComponent from './../components/view-signup/view-signup.component';
+import MeetingCreateComponent from './../components/view-meeting-create/view-meeting-create.component';
 
 import MoviesService from './../services/movies/movies.service';
 
+import meetingCreateBasicTemplate from './../components/view-meeting-create/view-meeting-create-basic.template.html'
+import meetingCreateSlotsTemplate from './../components/view-meeting-create/view-meeting-create-slots.template.html'
+import meetingCreatePartyTemplate from './../components/view-meeting-create/view-meeting-create-party.template.html'
+import meetingCreateSummaryTemplate from './../components/view-meeting-create/view-meeting-create-summary.template.html'
 
 resolveMovie.$inject = ['$stateParams', MoviesService.name];
 function resolveMovie($stateParams,moviesService){
@@ -30,7 +35,7 @@ export default function config ($stateProvider, $urlRouterProvider){
     $stateProvider
         .state('movies', {
             url: '/movies',
-            component: MoviesComponent.name,
+            compbinonent: MoviesComponent.name,
             resolve: {
                 movies : resolveMovies
             }
@@ -62,7 +67,26 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/signup',
             component: SignupComponent.name,
         })
-
+        .state('meetingCreate', {
+            url: '/meetings/new',
+            component: MeetingCreateComponent.name,
+        })
+        .state('meetingCreate.basic', {
+            url: '/basic',
+            template: meetingCreateBasicTemplate,
+        })
+        .state('meetingCreate.slots', {
+            url: '/slots',
+            template: meetingCreateSlotsTemplate,
+        })
+        .state('meetingCreate.party', {
+            url: '/party',
+            template: meetingCreatePartyTemplate,
+        })
+        .state('meetingCreate.summary', {
+            url: '/summary',
+            template: meetingCreateSummaryTemplate,
+        })
 
 }
 
