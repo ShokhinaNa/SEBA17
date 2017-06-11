@@ -1,6 +1,8 @@
 'use strict';
 
 import MoviesComponent from './../components/view-movies/view-movies.component';
+import MeetingComponent from './../components/view-meeting/view-meeting.component';
+import MeetingsComponent from './../components/view-meetings/view-meetings.component';
 import MovieComponent from './../components/view-movie/view-movie.component';
 import MovieEditComponent from './../components/view-movie-edit/view-movie-edit.component';
 import MovieCreateComponent from './../components/view-movie-create/view-movie-create.component';
@@ -8,6 +10,7 @@ import LoginComponent from './../components/view-login/view-login.component';
 import SignupComponent from './../components/view-signup/view-signup.component';
 
 import MoviesService from './../services/movies/movies.service';
+import MeetingsService from './../services/meetings/meetings.service';
 
 
 resolveMovie.$inject = ['$stateParams', MoviesService.name];
@@ -20,12 +23,21 @@ function resolveMovies(moviesService){
     return moviesService.list();
 }
 
+resolveMeeting.$inject = ['$stateParams', MeetingsService.name];
+function resolveMeeting($stateParams,meetingService){
+    return meetingService.get($stateParams.meetingId);
+}
+
+resolveMeetings.$inject = [MeetingsService.name];
+function resolveMeetings(meetingService){
+    return meetingService.list();
+}
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config ($stateProvider, $urlRouterProvider){
 
     // For any unmatched url, redirect to /home
-    $urlRouterProvider.otherwise("/movies");
+    $urlRouterProvider.otherwise("/meetings");
 
     $stateProvider
         .state('movies', {
@@ -52,6 +64,20 @@ export default function config ($stateProvider, $urlRouterProvider){
             component: MovieEditComponent.name,
             resolve: {
                 movie : resolveMovie
+            }
+        })
+        .state('meetings', {
+            url: '/meetings',
+            component: MeetingsComponent.name,
+            resolve: {
+                meetings : resolveMeetings
+            }
+        })
+        .state('meeting', {
+            url: '/meetings/:meetingId',
+            component: MeetingComponent.name,
+            resolve: {
+                meetings : resolveMeeting
             }
         })
         .state('login', {

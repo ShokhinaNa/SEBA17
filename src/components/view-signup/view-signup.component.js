@@ -36,7 +36,7 @@ class ViewSignupComponentController{
         let useremail = this.signup.useremail;
 
         this.UserService.signup(user,password, useremail).then(()=> {
-            this.$state.go('movies',{});
+            this.$state.go('meetings',{});
         });
     }
 

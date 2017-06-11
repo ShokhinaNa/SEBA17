@@ -9,6 +9,7 @@ import 'angular-material/angular-material.css';
 import ngMdIcons from 'angular-material-icons';
 
 import MoviesService from './services/movies/movies';
+import MeetingsService from './services/meetings/meetings';
 import UserService from './services/user/user';
 
 import Routes from './config/routes';
@@ -19,6 +20,8 @@ import ViewMovies from './components/view-movies/view-movies';
 import ViewMovie from './components/view-movie/view-movie';
 import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
 import ViewMovieCreate from './components/view-movie-create/view-movie-create';
+import ViewMeetings from './components/view-meetings/view-meetings';
+import ViewMeeting from './components/view-meeting/view-meeting';
 import ViewLogin from './components/view-login/view-login';
 import ViewSignup from './components/view-signup/view-signup';
 
@@ -28,11 +31,14 @@ let app = angular.module('app', [
     ngMdIcons,
     UserService.name,
     MoviesService.name,
+    MeetingsService.name,
     AppContent.name,
     ViewMovies.name,
     ViewMovie.name,
     ViewMovieEdit.name,
     ViewMovieCreate.name,
+    ViewMeetings.name,
+    ViewMeeting.name,
     ViewLogin.name,
     ViewSignup.name
 ]);
