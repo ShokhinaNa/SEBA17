@@ -35,7 +35,7 @@ export default function config ($stateProvider, $urlRouterProvider){
     $stateProvider
         .state('movies', {
             url: '/movies',
-            compbinonent: MoviesComponent.name,
+            component: MoviesComponent.name,
             resolve: {
                 movies : resolveMovies
             }
