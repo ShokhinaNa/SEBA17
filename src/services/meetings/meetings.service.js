@@ -9,7 +9,7 @@ export default class MeetingsService {
 
     constructor($http,API_URL) {
         this.$http = $http;
-        this.resourceUrl = `${ API_URL }/meetings/`;
+        this.resourceUrl = `${ API_URL }/meeting/`;
 
     }
 

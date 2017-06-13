@@ -94,7 +94,7 @@ export default function config ($stateProvider, $urlRouterProvider){
             component: SignupComponent.name,
         })
         .state('meetingCreate', {
-            url: '/meetings/new',
+            url: '/new',
             component: MeetingCreateComponent.name,
         })
         .state('meetingCreate.basic', {
