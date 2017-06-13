@@ -1,0 +1,23 @@
+<div class="form-group">
+    <md-input-container class="md-icon-float md-block">
+        <label>Meeting Title</label>
+        <!--<md-icon>-->
+            <!--<ng-md-icon icon="title"></ng-md-icon>-->
+        <!--</md-icon>-->
+        <input ng-model="formData.meetingTitle" type="text">
+    </md-input-container>
+</div>
+
+<div class="form-group">
+    <md-input-container class="md-icon-float md-block">
+        <label>Meeting Description</label>
+        <!--<md-icon>-->
+            <!--<ng-md-icon icon="title"></ng-md-icon>-->
+        <!--</md-icon>-->
+        <input ng-model="formData.meetingDescription" type="text">
+    </md-input-container>
+</div>
+
+<a ui-sref="meetingCreate.slots">
+    <button class="md-raised md-primary" >Next</button>
+</a>
