@@ -8,5 +8,5 @@
     <input type="text" class="form-control" name="meetingDesc" ng-model="formData.meetingDesc">
 </div>
 
-
-<button type="submit" class="btn btn-danger">Submit</button>
+<md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Save</md-button>
+<md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>

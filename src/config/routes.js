@@ -1,16 +1,11 @@
 'use strict';
 
-import MoviesComponent from './../components/view-movies/view-movies.component';
 import MeetingComponent from './../components/view-meeting/view-meeting.component';
 import MeetingsComponent from './../components/view-meetings/view-meetings.component';
-import MovieComponent from './../components/view-movie/view-movie.component';
-import MovieEditComponent from './../components/view-movie-edit/view-movie-edit.component';
-import MovieCreateComponent from './../components/view-movie-create/view-movie-create.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import SignupComponent from './../components/view-signup/view-signup.component';
 import MeetingCreateComponent from './../components/view-meeting-create/view-meeting-create.component';
 
-import MoviesService from './../services/movies/movies.service';
 import MeetingsService from './../services/meetings/meetings.service';
 
 import meetingCreateBasicTemplate from './../components/view-meeting-create/view-meeting-create-basic.template.html'
@@ -18,15 +13,6 @@ import meetingCreateSlotsTemplate from './../components/view-meeting-create/view
 import meetingCreatePartyTemplate from './../components/view-meeting-create/view-meeting-create-party.template.html'
 import meetingCreateSummaryTemplate from './../components/view-meeting-create/view-meeting-create-summary.template.html'
 
-resolveMovie.$inject = ['$stateParams', MoviesService.name];
-function resolveMovie($stateParams,moviesService){
-    return moviesService.get($stateParams.movieId);
-}
-
-resolveMovies.$inject = [MoviesService.name];
-function resolveMovies(moviesService){
-    return moviesService.list();
-}
 
 resolveMeeting.$inject = ['$stateParams', MeetingsService.name];
 function resolveMeeting($stateParams,meetingService){
@@ -45,32 +31,6 @@ export default function config ($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise("/meetings");
 
     $stateProvider
-        .state('movies', {
-            url: '/movies',
-            component: MoviesComponent.name,
-            resolve: {
-                movies : resolveMovies
-            }
-        })
-        .state('movieAdd', {
-            url: '/movies/new',
-            component: MovieCreateComponent.name
-        })
-        .state('movie', {
-            url: '/movies/:movieId',
-            component: MovieComponent.name,
-            resolve: {
-                movie : resolveMovie
-            }
-
-        })
-        .state('movieEdit', {
-            url: '/movies/:movieId/edit',
-            component: MovieEditComponent.name,
-            resolve: {
-                movie : resolveMovie
-            }
-        })
         .state('meetings', {
             url: '/meetings',
             component: MeetingsComponent.name,

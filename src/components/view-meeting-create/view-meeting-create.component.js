@@ -4,8 +4,8 @@
 import template from './view-meeting-create.template.html';
 
 import './view-meeting-create.style.css';
-// import MeetingsService from './../../services/meetings/meetings.service';
-// import UserService from './../../services/user/user.service';
+import MeetingsService from './../../services/meetings/meetings.service';
+import UserService from './../../services/user/user.service';
 
 class ViewMeetingCreateComponent {
     constructor(){
@@ -19,10 +19,10 @@ class ViewMeetingCreateComponent {
 }
 
 class ViewMeetingCreateComponentController {
-    constructor($state, $scope){
+    constructor($state, $scope, MeetingsService,UserService){
         this.$state = $state;
-        // this.MeetingsService = MeetingsService;
-        // this.UserService = UserService;
+        this.MeetingsService = MeetingsService;
+        this.UserService = UserService;
 
         $scope.formData = {};
 
@@ -31,24 +31,26 @@ class ViewMeetingCreateComponentController {
         };
     }
 
-    // cancel() {
-    //     this.$state.go('meetings',{});
-    // };
+    cancel() {
+        this.$state.go('meetings',{});
+    };
 
-    // save() {
-        // let user = this.UserService.getCurrentUser();
-        //
-        // this.meeting['user'] = user['_id'];
-        // this.MeetingsService.create(this.meeting).then(data => {
-        //     let _id = data['_id'];
-        //     this.$state.go('meeting',{ meetingId:_id});
-        // });
+    save() {
+        let user = this.UserService.getCurrentUser();
 
-    // };
+        this.meeting['user'] = user['_id'];
+        this.meeting['name'] = $scope.formData.meetingTitle;
+        this.meeting['purpose'] = $scope.formData.meetingDesc;
+        this.MeetingsService.create(this.meeting).then(data => {
+            let _id = data['_id'];
+            this.$state.go('meeting',{ meetingId:_id});
+        });
+
+    };
 
 
     static get $inject(){
-        return ['$state', '$scope'/*, MeetingsService.name, UserService.name*/];
+        return ['$state', '$scope', MeetingsService.name, UserService.name];
     }
 
 }
