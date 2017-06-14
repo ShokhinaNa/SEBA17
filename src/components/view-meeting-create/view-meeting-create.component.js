@@ -19,15 +19,15 @@ class ViewMeetingCreateComponent {
 }
 
 class ViewMeetingCreateComponentController {
-    constructor($state, $scope, MeetingsService,UserService){
+    constructor($state, MeetingsService,UserService){
         this.$state = $state;
+        this.meeting = {};
         this.MeetingsService = MeetingsService;
         this.UserService = UserService;
 
-        $scope.formData = {};
 
-        $scope.processForm = function() {
-            alert('Title: ' + $scope.formData.meetingTitle);
+        this.meeting.processForm = function() {
+            alert('Title: ' + this.meeting.name);
         };
     }
 
@@ -39,8 +39,7 @@ class ViewMeetingCreateComponentController {
         let user = this.UserService.getCurrentUser();
 
         this.meeting['user'] = user['_id'];
-        this.meeting['name'] = $scope.formData.meetingTitle;
-        this.meeting['purpose'] = $scope.formData.meetingDesc;
+        this.meeting['facilitator'] = user;
         this.MeetingsService.create(this.meeting).then(data => {
             let _id = data['_id'];
             this.$state.go('meeting',{ meetingId:_id});
@@ -50,7 +49,7 @@ class ViewMeetingCreateComponentController {
 
 
     static get $inject(){
-        return ['$state', '$scope', MeetingsService.name, UserService.name];
+        return ['$state', MeetingsService.name, UserService.name];
     }
 
 }

@@ -1,11 +1,6 @@
 <div class="form-group">
-    <md-input-container class="md-icon-float md-block">
-        <label>Duration</label>
-        <!--<md-icon>-->
-        <!--<ng-md-icon icon="title"></ng-md-icon>-->
-        <!--</md-icon>-->
-        <input ng-model="formData.duration" type="text">
-    </md-input-container>
+    <label for="meetingDesc">Meeting Location</label>
+    <input type="text" class="form-control" name="meetingDesc" ng-model="$ctrl.meeting.location">
 </div>
 
 <a ui-sref="meetingCreate.party">
