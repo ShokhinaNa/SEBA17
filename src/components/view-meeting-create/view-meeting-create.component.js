@@ -38,8 +38,7 @@ class ViewMeetingCreateComponentController {
     save() {
         let user = this.UserService.getCurrentUser();
 
-        this.meeting['user'] = user['_id'];
-        this.meeting['facilitator'] = user;
+        this.meeting['facilitator'] = user['_id'];
         this.MeetingsService.create(this.meeting).then(data => {
             let _id = data['_id'];
             this.$state.go('meeting',{ meetingId:_id});

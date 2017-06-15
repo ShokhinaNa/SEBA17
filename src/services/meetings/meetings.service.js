@@ -45,13 +45,10 @@ export default class MeetingsService {
 
     create(meeting) {
         let url = this.resourceUrl;
-        console.log("1");
         return this.$http.post(url,meeting).then(responce => {
-            console.log("1");
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
-                console.log("2");
-            });
+            })
 
         })
     }
