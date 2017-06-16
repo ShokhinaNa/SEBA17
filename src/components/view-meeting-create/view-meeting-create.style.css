@@ -9,12 +9,12 @@ pre                             { margin-bottom:20px; }
 
 /* numbered buttons */
 #status-buttons                 { }
-#status-buttons a               { color:#000; display:inline-block; font-size:12px; margin-right:10px; text-align:center; }
+#status-buttons a               { color:#000; display:inline-block; font-size:16px; margin-right:10px; text-align:center; }
 #status-buttons a:hover         { text-decoration:none; }
-#status-buttons span            { background: #6d35d6; display:block; height:30px; margin:0 auto 10px; padding-top:5px; width:30px; border-radius:50%; }
+#status-buttons span            { background: #3264ff; display:block; height:50px; margin:0 auto 10px; width:50px; border-radius:50%; }
 
 /* active buttons */
-#status-buttons a.active span   { background:#00BC8C; }
+#status-buttons a.active span   { background: #ffff17; }
 
 /* ANIMATION STYLINGS
 ============================================================================= */
