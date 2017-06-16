@@ -1,6 +1,17 @@
 <div class="form-group">
-    <label for="meetingDesc">Meeting Location</label>
+    <label for="meetingDesc">Meeting Loc</label>
     <input type="text" class="form-control" name="meetingDesc" ng-model="$ctrl.meeting.location">
+</div>
+
+<div class="form-group">
+    <md-input-container class="md-icon-float md-block">
+        <label>Meeting Description</label>
+        <input ng-model="$ctrl.meeting.purpose" type="text">
+    </md-input-container>
+</div>
+
+<div>
+    <input date-range-picker class="form-control date-picker" type="text" ng-model="$ctrl.meeting.date" />
 </div>
 
 <a ui-sref="meetingCreate.party">

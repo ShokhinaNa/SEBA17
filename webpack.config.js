@@ -35,10 +35,16 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+            },
+            {
+                test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+                loader: 'file-loader',
             }
         ]
     },
-
+    resolve: {
+        modulesDirectories: ["node_modules", "bower_components"]
+    },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
             name: ['app', 'vendor']

@@ -25,6 +25,7 @@ class ViewMeetingCreateComponentController {
         this.MeetingsService = MeetingsService;
         this.UserService = UserService;
 
+        this.meeting.date = {startDate: null, endDate: null};
 
         this.meeting.processForm = function() {
             alert('Title: ' + this.meeting.name);

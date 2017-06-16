@@ -21,10 +21,16 @@ import ViewLogin from './components/view-login/view-login';
 import ViewSignup from './components/view-signup/view-signup';
 import ViewMeetingCreate from './components/view-meeting-create/view-meeting-create';
 
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-daterangepicker/daterangepicker.css'
+
+import daterangepicker from 'angular-daterangepicker-webpack';
+
 let app = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
+    daterangepicker.name,
     UserService.name,
     MeetingsService.name,
     AppContent.name,
