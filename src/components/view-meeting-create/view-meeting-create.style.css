@@ -67,6 +67,9 @@ pre                             { margin-bottom:20px; }
     to 		{ -webkit-transform: translateX(0); }
 }
 
-.btn-long{
+.size-long{
     width: 100%;
+}
+.size-half{
+    width: 49%;
 }
