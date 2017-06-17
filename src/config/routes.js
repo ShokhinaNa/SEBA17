@@ -10,7 +10,7 @@ import MeetingsService from './../services/meetings/meetings.service';
 
 import meetingCreateBasicTemplate from './../components/view-meeting-create/view-meeting-create-basic.template.html'
 import meetingCreateSlotsTemplate from './../components/view-meeting-create/view-meeting-create-slots.template.html'
-import meetingCreatePartyTemplate from './../components/view-meeting-create/view-meeting-create-party.template.html'
+import meetingCreateParticipantsTemplate from '../components/view-meeting-create/view-meeting-create-participants.template.html'
 import meetingCreateSummaryTemplate from './../components/view-meeting-create/view-meeting-create-summary.template.html'
 
 
@@ -65,9 +65,9 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/slots',
             template: meetingCreateSlotsTemplate,
         })
-        .state('meetingCreate.party', {
-            url: '/party',
-            template: meetingCreatePartyTemplate,
+        .state('meetingCreate.participants', {
+            url: '/participants',
+            template: meetingCreateParticipantsTemplate,
         })
         .state('meetingCreate.summary', {
             url: '/summary',

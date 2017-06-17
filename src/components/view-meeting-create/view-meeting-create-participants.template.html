@@ -3,6 +3,14 @@
     <input type="text" class="form-control" name="meetingDesc" ng-model="$ctrl.meeting.location">
 </div>
 
+<md-input-container flex="50">
+    <label>Project Type</label>
+    <md-select name="type">
+        <md-option value="app">Team1</md-option>
+        <md-option value="web">Team2</md-option>
+    </md-select>
+</md-input-container>
+
 
 <a ui-sref="meetingCreate.summary">
     <button class="md-raised md-primary" >Next</button>
