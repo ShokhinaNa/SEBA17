@@ -56,6 +56,9 @@ export default function config ($stateProvider, $urlRouterProvider){
         .state('meetingCreate', {
             url: '/new',
             component: MeetingCreateComponent.name,
+            resolve: {
+                meetings : resolveMeetings
+            }
         })
         .state('meetingCreate.basic', {
             url: '/basic',

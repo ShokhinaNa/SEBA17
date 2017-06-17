@@ -11,6 +11,9 @@ class ViewMeetingCreateComponent {
     constructor(){
         this.controller = ViewMeetingCreateComponentController;
         this.template = template;
+        this.bindings = {
+            meetings: '<',
+        }
     }
 
     static get name() {

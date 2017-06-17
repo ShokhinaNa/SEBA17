@@ -1,17 +1,7 @@
-<div class="form-group">
-    <label for="meetingDesc">Meeting Location</label>
-    <input type="text" class="form-control" name="meetingDesc" ng-model="$ctrl.meeting.location">
-</div>
-
-<md-input-container flex="50">
-    <label>Project Type</label>
-    <md-select name="type">
-        <md-option value="app">Team1</md-option>
-        <md-option value="web">Team2</md-option>
-    </md-select>
-</md-input-container>
-
+<label>Choose one of your teams</label>
+    <select ng-model="selectedmeetings" ng-options="meeting.name for meeting in $ctrl.meetings"></select>
+</label>
 
 <a ui-sref="meetingCreate.summary">
-    <button class="md-raised md-primary" >Next</button>
+    <button class="md-raised md-primary btn-long">Continue</button>
 </a>
