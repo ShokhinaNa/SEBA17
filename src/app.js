@@ -45,11 +45,34 @@ app.constant('API_URL', 'http://localhost:3000/api');
 app.config(Routes);
 app.config(Middlewares);
 
+app.run(['$rootScope', '$state', function ($rootScope, $state) {
+    console.log('here');
+    $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+        console.log('even here: ' + error);
+        if (angular.isObject(error) && angular.isString(error.code)) {
+            switch (error.code) {
+                case 'NOT_AUTHENTICATED':
+                    // go to the login page
+                    $state.go('login');
+                    break;
+                default:
+                    // set the error object on the error state and go there
+                    $state.get('error').error = error;
+                    $state.go('error');
+            }
+        }
+        else {
+            // unexpected error
+            $state.go('error');
+        }
+    });
+}]);
 
 angular.element(document).ready(function() {
     return angular.bootstrap(document.body, [app.name], {
         strictDi: true
     });
 });
+
 
 export default app;

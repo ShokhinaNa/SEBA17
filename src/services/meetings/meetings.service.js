@@ -49,7 +49,6 @@ export default class MeetingsService {
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
             })
-
         })
     }
 

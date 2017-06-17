@@ -1,7 +1,29 @@
 <label>Choose one of your teams</label>
-    <select ng-model="selectedmeetings" ng-options="meeting.name for meeting in $ctrl.meetings"></select>
+    <select class="size-long" ng-model="$ctrl.meeting.participants" ng-options="chosenMeeting.participants as chosenMeeting.name for chosenMeeting in $ctrl.meetings">
+        <option value="">select team</option>
+    </select>
 </label>
+<br>
+
+
+<md-subheader class="md-no-sticky">Current participants</md-subheader>
+<md-list-item ng-repeat="participant in $ctrl.meeting.participants" class="noright">
+   <!-- <img alt=participantrson.username }}" ng-src=participantrson.img }}" class="md-avatar" />-->
+    <p>{{ participant.asText }}</p>
+    <!--<div ng-if="'username' in participant">-->
+        <!--<p>{{ participant.username }} ({{participant.useremail}})</p>-->
+    <!--</div>-->
+    <!--<div ng-if="!('username' in participant)">-->
+        <!--<p>{{participant.useremail}}</p>-->
+    <!--</div>-->
+    <md-button class="md-icon-button" aria-label="Delete Item" ng-click="$ctrl.delete(participant)" >
+        <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
+    </md-button>
+</md-list-item>
+</md-list>
+
+<p>You can add participants later by sharing the invite link</p>
 
 <a ui-sref="meetingCreate.summary">
-    <button class="md-raised md-primary btn-long">Continue</button>
+    <button class="md-raised md-primary size-long">Continue</button>
 </a>

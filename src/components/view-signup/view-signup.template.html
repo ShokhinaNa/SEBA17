@@ -6,10 +6,10 @@
             <md-card-content>
                 <form name="SignupForm">
                     <md-input-container class="md-block">
-                        <label>Username</label>
-                        <input type="text" name="username" ng-model="$ctrl.signup.username" placeholder="username" required=""/>
-                        <div ng-messages="SignupForm.username.$error" role="alert" multiple="">
-                            <div ng-message="required">Please chose your username.</div>
+                        <label>Email</label>
+                        <input type="text" name="useremail" ng-model="$ctrl.signup.useremail" placeholder="email" required=""/>
+                        <div ng-messages="SignupForm.useremail.$error" role="alert" multiple="">
+                            <div ng-message="required">Please enter your email.</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
@@ -20,10 +20,10 @@
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
-                        <label>Email</label>
-                        <input type="text" name="useremail" ng-model="$ctrl.signup.useremail" placeholder="email" required=""/>
-                        <div ng-messages="SignupForm.password.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your email.</div>
+                        <label>Username</label>
+                        <input type="text" name="username" ng-model="$ctrl.signup.username" placeholder="name" required=""/>
+                        <div ng-messages="SignupForm.username.$error" role="alert" multiple="">
+                            <div ng-message="required">Please chose your username.</div>
                         </div>
                     </md-input-container>
                     <md-button ng-disabled="!SignupForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Signup &nbsp</md-button>

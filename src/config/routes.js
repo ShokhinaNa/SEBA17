@@ -7,6 +7,7 @@ import SignupComponent from './../components/view-signup/view-signup.component';
 import MeetingCreateComponent from './../components/view-meeting-create/view-meeting-create.component';
 
 import MeetingsService from './../services/meetings/meetings.service';
+import UserService from './../services/user/user.service';
 
 import meetingCreateBasicTemplate from './../components/view-meeting-create/view-meeting-create-basic.template.html'
 import meetingCreateSlotsTemplate from './../components/view-meeting-create/view-meeting-create-slots.template.html'
@@ -17,6 +18,11 @@ import meetingCreateSummaryTemplate from './../components/view-meeting-create/vi
 resolveMeeting.$inject = ['$stateParams', MeetingsService.name];
 function resolveMeeting($stateParams,meetingService){
     return meetingService.get($stateParams.meetingId);
+}
+
+resolveUserEmail.$inject = [UserService.name];
+function resolveUserEmail(userService) {
+    return userService.getCurrentUserEmail();
 }
 
 resolveMeetings.$inject = [MeetingsService.name];
@@ -42,7 +48,7 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/meetings/:meetingId',
             component: MeetingComponent.name,
             resolve: {
-                meetings : resolveMeeting
+                meeting : resolveMeeting
             }
         })
         .state('login', {
@@ -55,18 +61,15 @@ export default function config ($stateProvider, $urlRouterProvider){
         })
         .state('meetingCreate', {
             url: '/new',
-            component: MeetingCreateComponent.name,
-            resolve: {
-                meetings : resolveMeetings
-            }
+            component: MeetingCreateComponent.name
         })
         .state('meetingCreate.basic', {
             url: '/basic',
-            template: meetingCreateBasicTemplate,
+            template: meetingCreateBasicTemplate
         })
         .state('meetingCreate.slots', {
             url: '/slots',
-            template: meetingCreateSlotsTemplate,
+            template: meetingCreateSlotsTemplate
         })
         .state('meetingCreate.participants', {
             url: '/participants',
@@ -76,6 +79,9 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/summary',
             template: meetingCreateSummaryTemplate,
         })
-
+        .state('error', {
+            url: '/error',
+            template: '<h1>Unexpected Error</h1>'
+        });
 }
 
