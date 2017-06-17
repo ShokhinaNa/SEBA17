@@ -1,24 +1,23 @@
 <form name="basicForm">
-    <md-input-container class="md-block">
-        <label>Meeting Title</label>
-        <input name="title" ng-model="$ctrl.meeting.name" type="text" placeholder="meeting" required="">
-        <div ng-messages="basicForm.title.$error" role="alert" multiple="">
-            <div ng-message="required">Please enter meeting title.</div>
+
+        <div class="form-group">
+            <label>Meeting Title</label>
+            <input name="title" class="form-control" ng-model="$ctrl.meeting.name" type="text" required>
         </div>
-    </md-input-container>
 
-    <md-input-container class="md-block">
+
+    <div class="form-group">
         <label>Meeting description</label>
-        <textarea ng-model="$ctrl.meeting.purpose" md-maxlength="500" rows="4" md-select-on-focus></textarea>
-    </md-input-container>
+        <textarea class="form-control" ng-model="$ctrl.meeting.purpose" md-maxlength="500" rows="4" md-select-on-focus></textarea>
+    </div>
 
-    <md-input-container class="md-block">
+    <div class="form-group">
         <label>Meeting location</label>
-        <input ng-model="$ctrl.meeting.location" type="text">
-    </md-input-container>
+        <input type="text" class="form-control" name="meetingDesc" ng-model="$ctrl.meeting.location">
+    </div>
 
     <a ui-sref="meetingCreate.slots">
-        <md-button ng-disabled="basicForm.$invalid" class="md-raised md-primary">Next</md-button>
+        <button class="md-raised md-primary btn-long">Continue</button>
     </a>
 
 </form>
