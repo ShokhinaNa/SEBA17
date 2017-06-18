@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900px" height="660px" viewBox="0 0 900 660" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <g id="Group-10" transform="translate(116.000000, 49.000000)">
+                <rect id="Rectangle" fill="#F14742" x="0" y="149.86911" width="284" height="332.86911" rx="26"></rect>
+                <rect id="Rectangle" fill="#D9D8DA" opacity="0.246773098" x="76" y="0" width="133" height="79" rx="5"></rect>
+                <rect id="Rectangle" fill="#D9D8DA" opacity="0.246773098" x="360" y="0" width="133" height="79" rx="5"></rect>
+                <rect id="Rectangle" fill="#D9D8DA" opacity="0.246773098" x="35" y="178" width="213" height="39" rx="5"></rect>
+                <rect id="Rectangle" fill="#D9D8DA" opacity="0.246773098" x="35" y="238" width="107" height="39" rx="5"></rect>
+                <rect id="Rectangle" fill="#F14742" x="284" y="257" width="284" height="118.86911" rx="26"></rect>
+                <rect id="Rectangle" fill="#D9D8DA" opacity="0.246773098" x="320" y="277" width="213" height="39" rx="5"></rect>
+                <path d="M4,113.5 L4,550" id="Line" stroke="#D9D8DA" stroke-width="10" stroke-linecap="square"></path>
+                <path d="M287,106.5 L287,549" id="Line" stroke="#D9D8DA" stroke-width="10" stroke-linecap="square"></path>
+                <path d="M570,106.5 L570,552" id="Line" stroke="#D9D8DA" stroke-width="10" stroke-linecap="square"></path>
+                <path d="M656.910146,432.806915 L634.310146,440.006915 L659.210146,464.606915 C660.810146,466.206915 660.810146,468.806915 659.210146,470.406915 L644.310146,485.306915 C642.710146,486.806915 640.010146,486.806915 638.510146,485.306915 L612.310146,459.106915 L604.010146,483.906915 C603.510146,485.506915 602.110146,486.606915 600.110146,486.706915 C598.510146,486.706915 597.110146,485.806915 596.410146,484.406915 L544.410146,376.906915 C543.610146,375.306915 544.010146,373.406915 545.210146,372.206915 C546.510146,371.006915 548.310146,370.706915 549.910146,371.506915 L657.510146,425.206915 C658.910146,426.006915 659.810146,427.506915 659.710146,429.206915 C659.610146,430.906915 658.510146,432.306915 656.910146,432.806915 Z" id="Shape" fill="#694B4B" fill-rule="nonzero" transform="translate(602.202042, 428.883669) rotate(7.000000) translate(-602.202042, -428.883669) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

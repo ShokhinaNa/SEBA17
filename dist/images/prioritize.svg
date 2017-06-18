@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700px" height="700px" viewBox="0 0 700 700" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" fill-rule="nonzero">
+            <g id="Group-5" transform="translate(68.000000, 113.000000)">
+                <g id="importance" transform="translate(0.000000, 84.295820)">
+                    <polygon id="Shape" fill="#D6CED1" points="265.3056 146.458283 108.676365 146.458283 63.2664161 241.233024 310.714792 241.233024"></polygon>
+                    <path d="M372.026513,369.194334 L323.100081,267.081232 L50.8811275,267.081232 L1.9546953,369.194334 C-2.15001342,377.762445 4.10470872,387.70418 13.6064054,387.70418 L360.374046,387.70418 C369.872714,387.70418 376.132736,377.764717 372.026513,369.194334 Z" id="Shape" fill="#C2B8B9"></path>
+                    <g id="Group" transform="translate(120.370470, 0.000000)">
+                        <path d="M54.9691812,7.32548875 L0.691183893,120.609318 L132.549842,120.609318 L78.2718443,7.32548875 C73.5955651,-2.43753859 59.6500027,-2.44586817 54.9691812,7.32548875 Z" id="Shape" fill="#ECE7EA"></path>
+                        <polygon id="Shape" fill="#000000" points="132.549842 120.609318 132.549842 120.609318 132.549842 120.610076"></polygon>
+                    </g>
+                </g>
+                <g id="importance" transform="translate(377.000000, 194.704180) scale(-1, -1) translate(-377.000000, -194.704180) translate(190.000000, 0.704180)">
+                    <polygon id="Shape" fill-opacity="0.780966938" fill="#D62B26" points="265.3056 146.458283 108.676365 146.458283 63.2664161 241.233024 310.714792 241.233024"></polygon>
+                    <path d="M372.026513,369.194334 L323.100081,267.081232 L50.8811275,267.081232 L1.9546953,369.194334 C-2.15001342,377.762445 4.10470872,387.70418 13.6064054,387.70418 L360.374046,387.70418 C369.872714,387.70418 376.132736,377.764717 372.026513,369.194334 Z" id="Shape" fill="#D72B25"></path>
+                    <g id="Group" transform="translate(120.370470, 0.000000)">
+                        <path d="M54.9691812,7.32548875 L0.691183893,120.609318 L132.549842,120.609318 L78.2718443,7.32548875 C73.5955651,-2.43753859 59.6500027,-2.44586817 54.9691812,7.32548875 Z" id="Shape" fill-opacity="0.491989357" fill="#D62B26"></path>
+                        <polygon id="Shape" fill="#000000" points="132.549842 120.609318 132.549842 120.609318 132.549842 120.610076"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
