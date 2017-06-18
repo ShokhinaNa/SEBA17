@@ -1,37 +1,31 @@
-<md-card class="form-group">
-    <md-card-content>
+<form name="basicForm">
 
-        <form name="basicForm">
-
-            <div class="form-group">
-                <md-input-container>
-                    <label>Meeting Title</label>
-                    <input name="title" class="form-control" ng-model="$ctrl.meeting.name" type="text" required>
-                </md-input-container>
-            </div>
+    <div class="form-group">
+        <md-input-container>
+            <label>Meeting Title</label>
+            <input name="title" class="form-control" ng-model="$ctrl.meeting.name" type="text" required>
+        </md-input-container>
+    </div>
 
 
-            <div class="form-group">
-                <md-input-container>
-                    <label>Meeting description</label>
-                    <textarea class="form-control" ng-model="$ctrl.meeting.purpose" maxlength="500" rows="4"
-                              md-select-on-focus></textarea>
-                </md-input-container>
-            </div>
+    <div class="form-group">
+        <md-input-container>
+            <label>Meeting description</label>
+            <textarea class="form-control" ng-model="$ctrl.meeting.purpose" maxlength="500" rows="4"
+                      md-select-on-focus></textarea>
+        </md-input-container>
+    </div>
 
-            <div class="form-group">
-                <md-input-container>
-                    <label>Meeting location</label>
-                    <input type="text" class="form-control" name="meetingDesc" ng-model="$ctrl.meeting.location">
-                </md-input-container>
-            </div>
+    <div class="form-group">
+        <md-input-container>
+            <label>Meeting location</label>
+            <input type="text" class="form-control" name="meetingDesc" ng-model="$ctrl.meeting.location">
+        </md-input-container>
+    </div>
 
-            <a ui-sref="meetingCreate.slots">
-                <md-button class="md-raised md-primary">Continue</md-button>
-            </a>
-
-        </form>
-    </md-card-content>
-</md-card>
+    <a ui-sref="meetingCreate.slots">
+        <md-button class="md-raised md-primary">Continue</md-button>
+    </a>
+</form>
 
 

@@ -172,7 +172,7 @@ class ViewMeetingCreateComponentController {
         console.log("Creating new meeting: " + JSON.stringify(this.meeting));
         this.MeetingsService.create(this.meeting).then(data => {
             let _id = data['_id'];
-            this.$state.go('meeting', {meetingId: _id});
+            this.$state.go('success', {meetingId: _id});
         });
 
     };
