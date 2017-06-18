@@ -58,7 +58,7 @@ pre {
 #create-meeting-form {
     position: relative;
     min-height: 300px;
-    /*max-width: 500px;*/
+    min-width: 500px;
     overflow: visible;
     padding: 30px;
 }

@@ -1,4 +1,4 @@
-<div layout="column" layout-align="center center">
+<div>
     <h2>{{ $ctrl.meeting.name }}</h2>
     {{ $ctrl.meeting.purpose }}
 </div>
@@ -39,7 +39,7 @@
 </div>
 
 <div id="heroform">
-    <div class="form-group" layout="row" layout-align="space-around center">
+    <div class="form-group" layout="row" layout-align="space-around center" layout-margin="10px">
         <button class="md-raised" style="background-color:#4D5061;color:white" ng-click="$ctrl.cancel()">Cancel</button>
         <button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Create</button>
     </div>
