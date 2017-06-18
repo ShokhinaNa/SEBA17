@@ -30,11 +30,11 @@
     "angular": "^1.5.8",
     "angular-animate": "^1.5.8",
     "angular-aria": "^1.5.8",
-    "angular-daterangepicker-webpack": "https://github.com/VeronikaEickhoff/angular-daterangepicker-webpack.git",
     "angular-material": "^1.1.0",
     "angular-material-icons": "^0.7.1",
     "angular-messages": "^1.5.8",
-    "file-loader": "^0.11.2"
+    "file-loader": "^0.11.2",
+    "md-date-range-picker": "^0.5.3"
   },
   "engines": {
     "node": ">=4.3"
