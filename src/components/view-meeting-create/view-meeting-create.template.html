@@ -11,7 +11,7 @@
         <!-- add the active class if the state matches our ui-sref -->
 
         <div flex id="status-buttons" class="text-center">
-            <a ui-sref-active="active" ui-sref=".basic"><span>1</span> Basic Info</a>
+            <a ui-sref-active="active" ui-sref=".basic"><span>1</span> Basic info</a>
             <a ui-sref-active="active" ui-sref=".slots"><span>2</span> Date range</a>
             <a ui-sref-active="active" ui-sref=".participants"><span>3</span> Participants</a>
             <a ui-sref-active="active" ui-sref=".summary"><span>4</span> Summary</a>
@@ -20,9 +20,24 @@
 
     <md-divider/>
 
-    <!-- use ng-submit to catch the form submission and use our Angular function -->
-    <form id="create-meeting-form" ng-submit="processForm()">
-        <!-- our nested state views will be injected here -->
-        <div id="form-views" ui-view></div>
-    </form>
+    <md-card-content  layout="column" layout-align="stretch center">
+        <!-- use ng-submit to catch the form submission and use our Angular function -->
+        <form id="create-meeting-form" ng-submit="processForm()" >
+            <!-- our nested state views will be injected here -->
+            <div id="form-views" ui-view></div>
+        </form>
+    </md-card-content>
+
+    <!--<div>-->
+        <!--<md-date-range-picker-->
+                <!--date-start="$ctrl.meeting.date.startDate"-->
+                <!--date-end="$ctrl.meeting.date.endDate"-->
+                <!--selected-template="$ctrl.meeting.date.selectedTemplate"-->
+                <!--selected-template-name="$ctrl.meeting.date.selectedTemplateName"-->
+                <!--is-disabled-date="$ctrl.meeting.date.isDisabledDate($date)"-->
+                <!--show-template="false"-->
+                <!--one-panel="$ctrl.meeting.date.onePanel"-->
+                <!--first-day-of-week="1"></md-date-range-picker>-->
+    <!--</div>-->
+
 </md-card>

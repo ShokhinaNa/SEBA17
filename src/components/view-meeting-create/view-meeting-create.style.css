@@ -1,74 +1,155 @@
 /* BASIC STYLINGS
 ============================================================================= */
-pre                             { margin-bottom:20px; }
+pre {
+    margin-bottom: 20px;
+}
 
 /* form styling */
-#form-container                { margin-bottom:20px; border-radius:5px; }
-#form-container .page-header   { margin:0; padding:30px; border-top-left-radius:5px; border-top-right-radius:5px; }
+#form-container {
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#form-container .page-header {
+    margin: 0;
+    padding: 30px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
 
 /* numbered buttons */
-#status-buttons                 { }
-#status-buttons a               { color:#000; display:inline-block; font-size:16px; margin-right:10px; text-align:center; }
-#status-buttons a:hover         { text-decoration:none;}
-#status-buttons span            { background: #4D5061; display:block; color: #fff; font-size:20px; height:50px; margin:0 auto 10px; width:50px; border-radius:50%; }
+#status-buttons {
+}
+
+#status-buttons a {
+    color: #000;
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 30px;
+}
+
+#status-buttons span {
+    background: #FFFFFF;
+    color: #4D5061;
+    font-size: 20px;
+    height: 50px;
+    margin: 0 auto 10px;
+    width: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #4D5061;
+    display: block;
+    text-align: center;
+}
 
 /* active buttons */
-#status-buttons a.active span   { background: #F14742; color: #fff;}
+#status-buttons a.active span {
+    background: #F14742;
+    border-style: solid;
+    border-color: #F14742;
+    color: #fff;
+}
 
 /* ANIMATION STYLINGS
 ============================================================================= */
-#create-meeting-form            { position:relative; min-height:300px; max-width:500px; overflow:hidden; padding:30px; }
+#create-meeting-form {
+    position: relative;
+    min-height: 300px;
+    max-width: 500px;
+    overflow: hidden;
+    padding: 30px;
+}
+
 #create-meeting-form input,
-#create-meeting-form textarea      { width: 30em }
-#create-meeting-form input[type=number] { width: 60px; }
-md-date-range-picker            { margin: 8px; }
+#create-meeting-form textarea {
+    width: 30em
+}
+
+#create-meeting-form input[type=number] {
+    width: 60px;
+}
+
+md-date-range-picker {
+    margin: 10px;
+}
 
 /* basic styling for entering and leaving */
 /* left and right added to ensure full width */
-#form-views.ng-enter,
-#form-views.ng-leave      { position:absolute; left:30px; right:30px; transition:0.5s all ease; -moz-transition:0.5s all ease; -webkit-transition:0.5s all ease;
-}
+/*#form-views.ng-enter,*/
+/*#form-views.ng-leave {*/
+    /*position: absolute;*/
+    /*left: 30px;*/
+    /*right: 30px;*/
+    /*transition: 0.5s all ease;*/
+    /*-moz-transition: 0.5s all ease;*/
+    /*-webkit-transition: 0.5s all ease;*/
+/*}*/
 
-/* enter animation */
-#form-views.ng-enter            {
-    -webkit-animation:slideInRight 0.5s both ease;
-    -moz-animation:slideInRight 0.5s both ease;
-    animation:slideInRight 0.5s both ease;
-}
+/*!* enter animation *!*/
+/*#form-views.ng-enter {*/
+    /*-webkit-animation: slideInRight 0.5s both ease;*/
+    /*-moz-animation: slideInRight 0.5s both ease;*/
+    /*animation: slideInRight 0.5s both ease;*/
+/*}*/
 
-/* leave animation */
-#form-views.ng-leave            {
-    -webkit-animation:slideOutLeft 0.5s both ease;
-    -moz-animation:slideOutLeft 0.5s both ease;
-    animation:slideOutLeft 0.5s both ease;
-}
+/*!* leave animation *!*/
+/*#form-views.ng-leave {*/
+    /*-webkit-animation: slideOutLeft 0.5s both ease;*/
+    /*-moz-animation: slideOutLeft 0.5s both ease;*/
+    /*animation: slideOutLeft 0.5s both ease;*/
+/*}*/
 
 /* ANIMATIONS
 ============================================================================= */
 /* slide out to the left */
-@keyframes slideOutLeft {
-    to 		{ transform: translateX(-200%); }
-}
-@-moz-keyframes slideOutLeft {
-    to 		{ -moz-transform: translateX(-200%); }
-}
-@-webkit-keyframes slideOutLeft {
-    to 		{ -webkit-transform: translateX(-200%); }
-}
+/*@keyframes slideOutLeft {*/
+    /*to {*/
+        /*transform: translateX(-200%);*/
+    /*}*/
+/*}*/
 
-/* slide in from the right */
-@keyframes slideInRight {
-    from 	{ transform:translateX(200%); }
-    to 		{ transform: translateX(0); }
-}
-@-moz-keyframes slideInRight {
-    from 	{ -moz-transform:translateX(200%); }
-    to 		{ -moz-transform: translateX(0); }
-}
-@-webkit-keyframes slideInRight {
-    from 	{ -webkit-transform:translateX(200%); }
-    to 		{ -webkit-transform: translateX(0); }
-}
+/*@-moz-keyframes slideOutLeft {*/
+    /*to {*/
+        /*-moz-transform: translateX(-200%);*/
+    /*}*/
+/*}*/
+
+/*@-webkit-keyframes slideOutLeft {*/
+    /*to {*/
+        /*-webkit-transform: translateX(-200%);*/
+    /*}*/
+/*}*/
+
+/*!* slide in from the right *!*/
+/*@keyframes slideInRight {*/
+    /*from {*/
+        /*transform: translateX(200%);*/
+    /*}*/
+    /*to {*/
+        /*transform: translateX(0);*/
+    /*}*/
+/*}*/
+
+/*@-moz-keyframes slideInRight {*/
+    /*from {*/
+        /*-moz-transform: translateX(200%);*/
+    /*}*/
+    /*to {*/
+        /*-moz-transform: translateX(0);*/
+    /*}*/
+/*}*/
+
+/*@-webkit-keyframes slideInRight {*/
+    /*from {*/
+        /*-webkit-transform: translateX(200%);*/
+    /*}*/
+    /*to {*/
+        /*-webkit-transform: translateX(0);*/
+    /*}*/
+/*}*/
 
 #heroform button {
     background-color: #F14742;
@@ -77,6 +158,7 @@ md-date-range-picker            { margin: 8px; }
     padding: 0.5em 2em;
     border: none;
     font-size: 1.2em;
+    align-self: flex-end;
 }
 
 #heroform img {

@@ -1,5 +1,4 @@
-<md-card>
-    <md-card-content>
+
         <md-autocomplete
                 md-selected-item="$ctrl.selectedItem"
                 md-search-text-change="$ctrl.searchTextChange($ctrl.searchText)"
@@ -9,7 +8,7 @@
                 md-item-text="item.display"
                 md-min-length="2"
                 placeholder="Add individuals or groups from previous meetings">
-            <md-item-template>
+            <md-item-template ng-if="item.display">
                 <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
                 <md-tooltip ng-if="$ctrl.searchText !== ''" md-direction="right">{{item.tooltip}}</md-tooltip>
             </md-item-template>
@@ -41,8 +40,8 @@
                 <md-divider ng-if="!$last"></md-divider>
             </md-list-item>
         </md-list>
-    </md-card-content>
-</md-card>
+
+        <br>
 
 
 <p>You can add participants later by sharing the invite link</p>

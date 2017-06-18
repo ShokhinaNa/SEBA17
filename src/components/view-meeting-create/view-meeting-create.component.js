@@ -88,7 +88,7 @@ class ViewMeetingCreateComponentController {
         let regExp = new RegExp(filteredRegexPattern, 'i');
         let filteredMeetings = this.createdMeetings.filter(m => regExp.test(m.name));
         return this.UserService.searchUsersByNameOrEmail(query).then(data => {
-            let foundUsers = data.users.map(u => {
+            let foundUsers = data.users.filter(u => u).map(u => {
                 u.display = `${u.username} (${u.useremail})`;
                 u.tooltip = u.useremail;
                 return u;

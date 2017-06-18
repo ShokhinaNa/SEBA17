@@ -1,38 +1,37 @@
+<p>Meeting Duration</p>
+<div flex>
+    <md-input-container>
+        <label for="meetingDurationDays">Days</label>
+        <input type="number" min="0" class="form-control" name="meetingDurationDays"
+               ng-model="$ctrl.meeting.durationParts.days"/>
+    </md-input-container>
+    <md-input-container>
+        <label for="meetingDurationHours">Hours</label>
+        <input type="number" min="0" max="23" class="form-control" name="meetingDurationHours"
+               ng-model="$ctrl.meeting.durationParts.hours"/>
+    </md-input-container>
+    <md-input-container>
+        <label for="meetingDurationMinutes">Minutes</label>
+        <input type="number" min="0" max="59" step="5" class="form-control" name="meetingDurationMinutes"
+               ng-model="$ctrl.meeting.durationParts.minutes"/>
+    </md-input-container>
+</div>
+
+
+<p>Date range</p>
+<div layout-align="start stretch">
+    <md-date-range-picker
+            date-start="$ctrl.meeting.date.startDate"
+            date-end="$ctrl.meeting.date.endDate"
+            selected-template="$ctrl.meeting.date.selectedTemplate"
+            selected-template-name="$ctrl.meeting.date.selectedTemplateName"
+            is-disabled-date="$ctrl.meeting.date.isDisabledDate($date)"
+            show-template="false"
+            one-panel="$ctrl.meeting.date.onePanel"
+            first-day-of-week="1"></md-date-range-picker>
+</div>
+
 <div id="heroform">
-    <div>
-        <md-date-range-picker
-                date-start="$ctrl.meeting.date.startDate"
-                date-end="$ctrl.meeting.date.endDate"
-                selected-template="$ctrl.meeting.date.selectedTemplate"
-                selected-template-name="$ctrl.meeting.date.selectedTemplateName"
-                is-disabled-date="$ctrl.meeting.date.isDisabledDate($date)"
-                show-template="false"
-                one-panel="$ctrl.meeting.date.onePanel"
-                first-day-of-week="1">
-        </md-date-range-picker>
-    </div>
-
-
-    <p>Meeting Duration</p>
-    <div flex>
-        <md-input-container>
-            <label for="meetingDurationDays">Days</label>
-            <input type="number" min="0" class="form-control" name="meetingDurationDays"
-                   ng-model="$ctrl.meeting.durationParts.days"/>
-        </md-input-container>
-        <md-input-container>
-            <label for="meetingDurationHours">Hours</label>
-            <input type="number" min="0" max="23" class="form-control" name="meetingDurationHours"
-                   ng-model="$ctrl.meeting.durationParts.hours"/>
-        </md-input-container>
-        <md-input-container>
-            <label for="meetingDurationMinutes">Minutes</label>
-            <input type="number" min="0" max="59" step="5" class="form-control" name="meetingDurationMinutes"
-                   ng-model="$ctrl.meeting.durationParts.minutes"/>
-        </md-input-container>
-    </div>
-
-
     <a ui-sref="meetingCreate.participants">
         <button class="md-raised md-primary">Continue</button>
     </a>
