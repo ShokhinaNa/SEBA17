@@ -17,7 +17,7 @@ pre                             { margin-bottom:20px; }
 
 /* ANIMATION STYLINGS
 ============================================================================= */
-#create-meeting-form            { position:relative; min-height:300px; max-width:680px; overflow:hidden; padding:30px; }
+#create-meeting-form            { position:relative; min-height:300px; max-width:500px; overflow:hidden; padding:30px; }
 #create-meeting-form input,
 #create-meeting-form textarea      { width: 30em }
 #create-meeting-form input[type=number] { width: 60px; }

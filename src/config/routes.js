@@ -15,6 +15,7 @@ import meetingCreateParticipantsTemplate from '../components/view-meeting-create
 import meetingCreateSummaryTemplate from './../components/view-meeting-create/view-meeting-create-summary.template.html'
 
 import ViewLandingPageComponent from './../components/view-landing-page/view-landing-page.component';
+import meetingCreateSuccessTemplate from './../components/view-meeting-create/view-meeting-create-success.template.html'
 
 resolveMeeting.$inject = ['$stateParams', MeetingsService.name];
 function resolveMeeting($stateParams,meetingService){
@@ -85,14 +86,15 @@ export default function config ($stateProvider, $urlRouterProvider){
         .state('meetingCreate.participants', {
             url: '/participants',
             template: meetingCreateParticipantsTemplate,
-            // resolve: {
-            //     createdMeetings: resolveCreatedMeetings
-            // }
         })
         .state('meetingCreate.summary', {
             url: '/summary',
             template: meetingCreateSummaryTemplate,
         })
+        .state('success', {
+            url: '/new/:meetingId',
+            template: meetingCreateSuccessTemplate,
+    })
         .state('error', {
             url: '/error',
             template: '<h1>Unexpected Error</h1>'
