@@ -27,7 +27,22 @@ class ViewMeetingCreateComponentController {
         this.MeetingsService = MeetingsService;
         this.UserService = UserService;
 
-        this.meeting.date = {startDate: null, endDate: null};
+        this.meeting.date = {
+            startDate: null,
+            endDate: null,
+            selectedTemplate: null,
+            selectedTemplateName: null,
+            onePanel: false,
+            isDisabledDate: function ($date) {
+                return $date < new Date();
+            }
+        };
+
+        this.meeting.durationParts = {
+            days: 0,
+            hours: 0,
+            minutes: 0
+        };
 
         this.meeting.processForm = function () {
             alert('Title: ' + this.meeting.name);
@@ -153,6 +168,7 @@ class ViewMeetingCreateComponentController {
         this.meeting.participantEmails = this.meeting.participants.map(p => p.useremail);
         this.meeting.facilitator = user['_id'];
         this.meeting.range = [this.meeting.date.startDate, this.meeting.date.endDate];
+        this.meeting.duration = this.meeting.durationParts.minutes + this.meeting.durationParts.hours * 60 + this.meeting.durationParts.days * 24 * 60;
         console.log("Creating new meeting: " + JSON.stringify(this.meeting));
         this.MeetingsService.create(this.meeting).then(data => {
             let _id = data['_id'];

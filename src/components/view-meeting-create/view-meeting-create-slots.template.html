@@ -1,19 +1,34 @@
-<div class="form-group">
-    <!--<label for="meetingDesc">Meeting Loc</label>-->
-    <input type="text" class="form-control" name="meetingDesc" ng-model="$ctrl.meeting.location">
-</div>
-
-<div class="form-group">
-    <md-input-container class="md-icon-float md-block">
-        <label>Meeting Description</label>
-        <input ng-model="$ctrl.meeting.purpose" type="text">
-    </md-input-container>
-</div>
-
 <div>
-    <input date-range-picker class="form-control date-picker"sta type="text" ng-model="$ctrl.meeting.date" />
+    <md-date-range-picker
+            date-start="$ctrl.meeting.date.startDate"
+            date-end="$ctrl.meeting.date.endDate"
+            selected-template="$ctrl.meeting.date.selectedTemplate"
+            selected-template-name="$ctrl.meeting.date.selectedTemplateName"
+            is-disabled-date="$ctrl.meeting.date.isDisabledDate($date)"
+            show-template="false"
+            one-panel="$ctrl.meeting.date.onePanel"
+            first-day-of-week="1"
+    ></md-date-range-picker>
 </div>
+
+<md-card class="form-group">
+    <md-card-content>
+        <p>Meeting Duration</p>
+        <md-input-container>
+            <label for="meetingDurationDays">Days</label>
+            <input type="number" min="0" class="form-control" name="meetingDurationDays" ng-model="$ctrl.meeting.durationParts.days"/>
+        </md-input-container>
+        <md-input-container>
+            <label for="meetingDurationHours">Hours</label>
+            <input type="number" min="0" max="23" class="form-control" name="meetingDurationHours" ng-model="$ctrl.meeting.durationParts.hours"/>
+        </md-input-container>
+        <md-input-container>
+            <label for="meetingDurationMinutes">Minutes</label>
+            <input type="number" min="0" max="59" step="5" class="form-control" name="meetingDurationMinutes" ng-model="$ctrl.meeting.durationParts.minutes"/>
+        </md-input-container>
+    </md-card-content>
+</md-card>
 
 <a ui-sref="meetingCreate.participants">
-    <button class="md-raised md-primary" >Next</button>
+    <md-button class="md-raised md-primary">Continue</md-button>
 </a>
