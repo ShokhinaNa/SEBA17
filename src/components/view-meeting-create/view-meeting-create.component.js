@@ -1,4 +1,3 @@
-
 'use strict';
 
 import template from './view-meeting-create.template.html';
@@ -8,11 +7,10 @@ import MeetingsService from './../../services/meetings/meetings.service';
 import UserService from './../../services/user/user.service';
 
 class ViewMeetingCreateComponent {
-    constructor(){
+    constructor() {
         this.controller = ViewMeetingCreateComponentController;
         this.template = template;
-        this.bindings = {
-        }
+        this.bindings = {}
     }
 
     static get name() {
@@ -21,7 +19,7 @@ class ViewMeetingCreateComponent {
 }
 
 class ViewMeetingCreateComponentController {
-    constructor($state, MeetingsService, UserService){
+    constructor($state, MeetingsService, UserService) {
         this.$state = $state;
         this.meeting = {};
         this.meeting.participants = [];
@@ -30,30 +28,59 @@ class ViewMeetingCreateComponentController {
 
         this.meeting.date = {startDate: null, endDate: null};
 
-        this.meeting.processForm = function() {
+        this.meeting.processForm = function () {
             alert('Title: ' + this.meeting.name);
         };
 
-        this.$onInit = function() {
-            this.addParticipantByUserId(this.getCurrentUser()._id);
+        this.$onInit = () => {
+            console.log("onInit");
+            this.addParticipant(this.getCurrentUser());
         };
+    }
+
+    newParticipantEmail(email) {
+        //TODO verify email with regex
+        if (email) {
+            this.addParticipant({useremail: email});
+            this.searchText = "";
+        }
+    }
+
+    hasCurrentParticipantWithEmail(email) {
+        return email && this.meeting.participants.findIndex(p => p.useremail === email) >= 0;
+    }
+
+    querySearch(query) {
+        return this.UserService.searchUsersByNameOrEmail(query).then(data => {
+            return data.users.map(u => {
+                u.display = `${u.username} (${u.useremail})`;
+                return u;
+            }).filter(u => !this.hasCurrentParticipantWithEmail(u.useremail));
+        })
+    }
+
+    searchTextChange(text) {
+
+    }
+
+    selectedItemChange(participant) {
+        this.addParticipant(participant);
+        this.searchText = "";
     }
 
     getCurrentUser() {
         return this.UserService.getCurrentUser();
     }
 
-    getCurrentUserEmail() {
-        return this.userEmail;
-    }
-
     cancel() {
-        this.$state.go('meetings',{});
+        this.$state.go('meetings', {});
     }
 
     addParticipant(participant) {
-        console.log("Adding participant: " + participant);
-        participant.asText = 'username' in participant ? `${participant.username} (${participant.useremail})` : participant.useremail;
+        if (!participant || this.hasCurrentParticipantWithEmail(participant.useremail)) {
+            return;
+        }
+        participant.display = 'username' in participant ? `${participant.username} (${participant.useremail})` : participant.useremail;
         this.meeting.participants.push(participant);
     }
 
@@ -61,8 +88,7 @@ class ViewMeetingCreateComponentController {
         if (typeof userId === "undefined") {
             return undefined;
         }
-        this.UserService.getUserPromise(userId).then(data => {
-            console.log(data);
+        this.UserService.findUserById(userId).then(data => {
             this.addParticipant(data);
         });
     }
@@ -73,26 +99,29 @@ class ViewMeetingCreateComponentController {
         console.log("after: " + this.meeting.participants);
     }
 
-    delete(participant) {
-
+    deleteParticipant(participant) {
+        let index = this.meeting.participants.indexOf(participant);
+        if (index >= 0) {
+            this.meeting.participants.splice(index, 1);
+        }
     }
 
     save() {
         let user = this.UserService.getCurrentUser();
-      /*  this.meeting.participants.push([]);*/
+        /*  this.meeting.participants.push([]);*/
 
 
         this.meeting.facilitator = user['_id'];
         this.meeting.range = [this.meeting.date.startDate, this.meeting.date.endDate];
         this.MeetingsService.create(this.meeting).then(data => {
             let _id = data['_id'];
-            this.$state.go('meeting',{ meetingId:_id});
+            this.$state.go('meeting', {meetingId: _id});
         });
 
     };
 
 
-    static get $inject(){
+    static get $inject() {
         return ['$state', MeetingsService.name, UserService.name];
     }
 
