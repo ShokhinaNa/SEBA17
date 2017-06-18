@@ -42,4 +42,5 @@ jspm_packages
 .DS_Store
 
 # Distribution files
-dist/
+dist/*
+!dist/images

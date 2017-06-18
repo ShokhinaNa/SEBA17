@@ -1,54 +1,37 @@
 
 'use strict';
 
-import template from './view-meeting.template.html';
-import MeetingsService from './../../services/meetings/meetings.service';
-import UserService from './../../services/user/user.service';
+import template from './view-landing-page.template.html';
+import './view-landing-page.style.css';
 
-class ViewMeetingComponent {
+class ViewLandingPageComponent {
     constructor(){
-        this.controller = ViewMeetingComponentController;
+        this.controller = ViewLandingPageComponentController;
         this.template = template;
-        this.bindings = {
-            meeting: '<',
-        }
+        this.bindings = {}
 
     }
 
     static get name() {
-        return 'viewMeeting';
+        return 'viewLandingPage';
     }
 
 
 }
 
-class ViewMeetingComponentController{
-    constructor($state,MeetingsService,UserService){
+class ViewLandingPageComponentController{
+    constructor($state){
         this.$state = $state;
-        this.MeetingsService = MeetingsService;
-        this.UserService = UserService;
-
     }
 
-    delete() {
-        if (this.UserService.isAuthenticated()) {
-            let _id = this.meeting['_id'];
-
-            this.MeetingsService.delete(_id).then(response => {
-                this.$state.go('meetings',{});
-            });
-        } else {
-            this.$state.go('login',{});
-        }
-    };
-
-
+    newMeeting() {
+        this.$state.go('meetingCreate.basic')
+    }
 
     static get $inject(){
-        return ['$state', MeetingsService.name, UserService.name];
+        return ['$state'];
     }
-
 }
 
 
-export default ViewMeetingComponent;
+export default ViewLandingPageComponent;

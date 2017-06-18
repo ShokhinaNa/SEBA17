@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="649px" height="476px" viewBox="0 0 649 476" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <g id="Group-9" transform="translate(74.000000, 97.000000)">
+                <rect id="Rectangle" fill="#ECE7EA" x="0" y="0.561472081" width="500.412811" height="265.438528" rx="5"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" opacity="0.571614583" x="119" y="31" width="262" height="45" rx="5"></rect>
+                <circle id="Oval-2" fill="#F6F4F6" cx="64" cy="56" r="35"></circle>
+                <rect id="Rectangle" fill="#FFFFFF" opacity="0.571614583" x="119" y="121" width="262" height="45" rx="5"></rect>
+                <circle id="Oval-2" fill="#F6F4F6" cx="64" cy="146" r="35"></circle>
+                <rect id="Rectangle" fill="#FFFFFF" opacity="0.571614583" x="120" y="206" width="262" height="45" rx="5"></rect>
+                <circle id="Oval-2" fill="#F6F4F6" cx="65" cy="231" r="35"></circle>
+            </g>
+        </g>
+    </g>
+</svg>
