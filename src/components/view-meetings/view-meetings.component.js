@@ -35,25 +35,6 @@ class ViewMeetingsComponentController{
         this.$state.go('meeting',{ meetingId:_id});  // TODO define this state in a view-meeting component
     };
 
-    // edit (movie) {
-    //
-    //     if (this.UserService.isAuthenticated()) {
-    //         let _id = movie['_id'];
-    //         this.$state.go('movieEdit',{ movieId:_id});
-    //     } else {
-    //         this.$state.go('login',{});
-    //     }
-    // };
-
-    // newMovie(){
-    //
-    //     if (this.UserService.isAuthenticated()) {
-    //         this.$state.go('movieAdd',{});
-    //     } else {
-    //         this.$state.go('login',{});
-    //     }
-    //
-    // }
 
 
     delete(meeting) {
