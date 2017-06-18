@@ -56,8 +56,6 @@ export default class UserService {
 
     searchUsersByNameOrEmail(searchText) {
         let query = new Buffer(searchText).toString('base64');
-        console.log("Search text: " + searchText);
-        console.log("Search query: " + query);
         return this.$http.get(`${ this.API_URL }/user/search/${ query }`).then(response => {
             return new Promise((resolve, reject) => {
                 resolve(response.data);

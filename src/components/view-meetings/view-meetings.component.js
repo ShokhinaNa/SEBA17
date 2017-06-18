@@ -11,7 +11,7 @@ class ViewMeetingsComponent {
         this.controller = ViewMeetingsComponentController;
         this.template = template;
         this.bindings = {
-            meetings: '<',  // TODO where do meetings come from?
+            meetings: '<',
         }
     }
 

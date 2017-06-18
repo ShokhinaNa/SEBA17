@@ -10,7 +10,8 @@ class ViewMeetingCreateComponent {
     constructor() {
         this.controller = ViewMeetingCreateComponentController;
         this.template = template;
-        this.bindings = {}
+        this.bindings = {
+        }
     }
 
     static get name() {
@@ -22,7 +23,7 @@ class ViewMeetingCreateComponentController {
     constructor($state, MeetingsService, UserService) {
         this.$state = $state;
         this.meeting = {};
-        this.meeting.participants = [];
+        this.meeting.participants = []; // array of emails
         this.MeetingsService = MeetingsService;
         this.UserService = UserService;
 
@@ -47,18 +48,34 @@ class ViewMeetingCreateComponentController {
             alert('Title: ' + this.meeting.name);
         };
 
+        this.createdMeetings = [];
+
+        this.showSelectedItemTooltip = false;
+
         this.$onInit = () => {
-            console.log("onInit");
-            this.addParticipant(this.getCurrentUser());
+            let user = this.getCurrentUser();
+            this.addParticipant(user);
+            this.MeetingsService.findByFacilitatorId(user._id).then(data => {
+                console.log("Received created meetings: " + JSON.stringify(data));
+                this.createdMeetings = data.map(m => {
+                    m.display = "Meeting: " + m.name;
+                    m.tooltip = m.participantEmails.join(", ");
+                    return m;
+                });
+            });
         };
     }
 
     newParticipantEmail(email) {
-        //TODO verify email with regex
         if (email) {
-            this.addParticipant({useremail: email});
+            this.addParticipant({useremail: email, display: email});
             this.searchText = "";
         }
+    }
+
+    isValidEmail(email) {
+        //NOTE: do NOT make static
+        return email && /^\w+(\.\w+)*@\w+(\.\w+)+$/.test(email);
     }
 
     hasCurrentParticipantWithEmail(email) {
@@ -66,11 +83,17 @@ class ViewMeetingCreateComponentController {
     }
 
     querySearch(query) {
+        let alternatives = query.replace(/[^\w\s@.]+/g, "#").split(/\s+/).filter(a => a !== "");
+        let filteredRegexPattern = alternatives.join("|").replace('.', '\\.');
+        let regExp = new RegExp(filteredRegexPattern, 'i');
+        let filteredMeetings = this.createdMeetings.filter(m => regExp.test(m.name));
         return this.UserService.searchUsersByNameOrEmail(query).then(data => {
-            return data.users.map(u => {
+            let foundUsers = data.users.map(u => {
                 u.display = `${u.username} (${u.useremail})`;
+                u.tooltip = u.useremail;
                 return u;
-            }).filter(u => !this.hasCurrentParticipantWithEmail(u.useremail));
+            });
+            return filteredMeetings.concat(foundUsers);
         })
     }
 
@@ -78,8 +101,32 @@ class ViewMeetingCreateComponentController {
 
     }
 
-    selectedItemChange(participant) {
-        this.addParticipant(participant);
+    selectedItemChange(selectedItem) {
+        if (!selectedItem) {
+            return;
+        }
+
+        if (selectedItem.useremail) {
+            this.addParticipant(selectedItem);
+        } else {
+            let emails = selectedItem.participantEmails;
+            console.log("Adding participants by email: " + JSON.stringify(emails));
+            for (var i = 0; i < emails.length; i++) {
+                let email = emails[i];
+                this.UserService.searchUsersByNameOrEmail(email).then(data => {
+                    let foundUsers = data.users.map(u => {
+                        u.display = `${u.username} (${u.useremail})`;
+                        return u;
+                    });
+                    if (foundUsers.length > 0) {
+                        this.addParticipant(foundUsers[0]);
+                    } else {
+                        this.addParticipant({useremail: email, display: email});
+                    }
+                })
+            }
+        }
+
         this.searchText = "";
     }
 
@@ -100,22 +147,16 @@ class ViewMeetingCreateComponentController {
     }
 
     addParticipantByUserId(userId) {
-        if (typeof userId === "undefined") {
-            return undefined;
+        if (!userId) {
+            return null;
         }
         this.UserService.findUserById(userId).then(data => {
             this.addParticipant(data);
         });
     }
 
-    add(chosenMeeting) {
-        this.meeting.participants.push(chosenMeeting.participants);
-        console.log("chosen: " + chosenMeeting.participants);
-        console.log("after: " + this.meeting.participants);
-    }
-
     deleteParticipant(participant) {
-        let index = this.meeting.participants.indexOf(participant);
+        let index = this.meeting.participants.find(p => p.useremail === participant.useremail);
         if (index >= 0) {
             this.meeting.participants.splice(index, 1);
         }
@@ -123,12 +164,12 @@ class ViewMeetingCreateComponentController {
 
     save() {
         let user = this.UserService.getCurrentUser();
-        /*  this.meeting.participants.push([]);*/
 
-
+        this.meeting.participantEmails = this.meeting.participants.map(p => p.useremail);
         this.meeting.facilitator = user['_id'];
         this.meeting.range = [this.meeting.date.startDate, this.meeting.date.endDate];
         this.meeting.duration = this.meeting.durationParts.minutes + this.meeting.durationParts.hours * 60 + this.meeting.durationParts.days * 24 * 60;
+        console.log("Creating new meeting: " + JSON.stringify(this.meeting));
         this.MeetingsService.create(this.meeting).then(data => {
             let _id = data['_id'];
             this.$state.go('meeting', {meetingId: _id});

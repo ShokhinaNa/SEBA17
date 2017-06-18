@@ -74,3 +74,6 @@ md-date-range-picker            { margin: 8px; }
 .size-long{
     width: 100%;
 }
+.size-half{
+    width: 49%;
+}

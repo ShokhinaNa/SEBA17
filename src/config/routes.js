@@ -25,6 +25,16 @@ function resolveUserEmail(userService) {
     return userService.getCurrentUserEmail();
 }
 
+// resolveCreatedMeetings.$inject = [UserService.name, MeetingsService.name];
+// function resolveCreatedMeetings(userService, meetingService){
+//     let userId = userService.getCurrentUser()._id;
+//     console.log("Requesting created meetings for user: " + userService.getCurrentUser());
+//     return meetingService.findByFacilitatorId(userId).then(data => {
+//         console.log("Received created meegings of user " + userId + ": " + JSON.stringify(data));
+//         return data;
+//     });
+// }
+
 resolveMeetings.$inject = [MeetingsService.name];
 function resolveMeetings(meetingService){
     return meetingService.list();
@@ -74,6 +84,9 @@ export default function config ($stateProvider, $urlRouterProvider){
         .state('meetingCreate.participants', {
             url: '/participants',
             template: meetingCreateParticipantsTemplate,
+            // resolve: {
+            //     createdMeetings: resolveCreatedMeetings
+            // }
         })
         .state('meetingCreate.summary', {
             url: '/summary',
