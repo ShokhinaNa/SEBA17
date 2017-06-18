@@ -33,7 +33,6 @@ class ViewMeetingCreateComponentController {
         };
 
         this.$onInit = () => {
-            console.log("onInit");
             this.addParticipant(this.getCurrentUser());
         };
     }
@@ -44,6 +43,10 @@ class ViewMeetingCreateComponentController {
             this.addParticipant({useremail: email});
             this.searchText = "";
         }
+    }
+
+    isValidEmail(email) {
+        return email && /^\w+(\.\w+)*@\w+(\.\w+)+$/.test(email);
     }
 
     hasCurrentParticipantWithEmail(email) {

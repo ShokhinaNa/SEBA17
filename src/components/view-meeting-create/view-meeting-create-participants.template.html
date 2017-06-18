@@ -23,11 +23,17 @@
                         md-min-length="1"
                         placeholder="Add people by name or email">
                     <md-item-template>
-                        <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                    <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
                     </md-item-template>
                     <md-not-found>
-                        Use "{{$ctrl.searchText}}" as
-                        <a ng-click="$ctrl.newParticipantEmail($ctrl.searchText)">new participant email</a>.
+                        <div ng-if="$ctrl.isValidEmail($ctrl.searchText)">
+                            Use "{{$ctrl.searchText}}" as
+                            <a ng-click="$ctrl.newParticipantEmail($ctrl.searchText)">new participant email</a>.
+                        </div>
+                        <div ng-if="!$ctrl.isValidEmail($ctrl.searchText)">
+                            No users found for "{{$ctrl.searchText}}".
+                            Specify an email.
+                        </div>
                     </md-not-found>
                 </md-autocomplete>
         </md-content>
