@@ -35,7 +35,7 @@ class ViewLoginComponentController{
         let password = this.login.password;
 
         this.UserService.login(email,password).then(()=> {
-            this.$state.go('meetings',{});
+            this.$state.go('landingPage',{});
         });
     }
 

@@ -88,7 +88,7 @@ class ViewMeetingCreateComponentController {
         let regExp = new RegExp(filteredRegexPattern, 'i');
         let filteredMeetings = this.createdMeetings.filter(m => regExp.test(m.name));
         return this.UserService.searchUsersByNameOrEmail(query).then(data => {
-            let foundUsers = data.users.filter(u => u).map(u => {
+            let foundUsers = data.users.map(u => {
                 u.display = `${u.username} (${u.useremail})`;
                 u.tooltip = u.useremail;
                 return u;
@@ -156,7 +156,8 @@ class ViewMeetingCreateComponentController {
     }
 
     deleteParticipant(participant) {
-        let index = this.meeting.participants.find(p => p.useremail === participant.useremail);
+        console.log("Deleting participant: " + JSON.stringify(participant));
+        let index = this.meeting.participants.findIndex(p => p.useremail === participant.useremail);
         if (index >= 0) {
             this.meeting.participants.splice(index, 1);
         }

@@ -36,7 +36,7 @@ class ViewSignupComponentController{
         let username = this.signup.username;
 
         this.UserService.signup(useremail,password,username).then(()=> {
-            this.$state.go('meetings',{});
+            this.$state.go('landingPage',{});
         });
     }
 
