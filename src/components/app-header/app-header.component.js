@@ -43,7 +43,7 @@ class AppHeaderComponentController{
 
 
     goHome(){
-        this.$state.go('movies',{});
+        this.$state.go('landingPage',{});
     }
 
     login(){
@@ -54,10 +54,9 @@ class AppHeaderComponentController{
         this.$state.go('signup',{});
     }
 
-
-    logout(){
+    logout() {
         this.UserService.logout();
-        this.$state.go('movies',{});
+        this.$state.go('landingPage',{});
     }
 
     static get $inject(){

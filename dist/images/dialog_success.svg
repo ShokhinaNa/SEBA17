@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="630px" height="770px" viewBox="0 0 630 770" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <g id="Group-11" transform="translate(40.000000, 43.000000)">
+                <path d="M10.2611269,5.00395267 C10.2611269,2.24034592 12.4921811,0 15.2544014,0 L505.680664,0 C508.438373,0 510.673938,2.23386455 510.673938,5.00271993 L510.673938,94.1642347 C510.673938,96.9271606 508.434416,99.1669546 505.665154,99.1669546 L37.9486992,99.1669546 L3.21904847,115.151696 C0.709745315,116.306633 -0.608460456,115.125508 0.274313832,112.51488 L10.2611269,82.9808781 L10.2611269,5.00395267 Z" id="Rectangle" fill="#ECE7EA"></path>
+                <text id="Hi-guys,-lets-meet-f" font-family="LucidaGrande, Lucida Grande" font-size="25" font-weight="normal" fill="#5A8BB0">
+                    <tspan x="40" y="43">Hi guys, lets meet for beer this week? </tspan>
+                    <tspan x="40" y="72">Here is a Timeet link, fill it out pls</tspan>
+                </text>
+                <path d="M50.2611269,117.003953 C50.2611269,114.240346 52.4921811,112 55.2544014,112 L545.680664,112 C548.438373,112 550.673938,114.233865 550.673938,117.00272 L550.673938,206.164235 C550.673938,208.927161 548.434416,211.166955 545.665154,211.166955 L77.9486992,211.166955 L43.2190485,227.151696 C40.7097453,228.306633 39.3915395,227.125508 40.2743138,224.51488 L50.2611269,194.980878 L50.2611269,117.003953 Z" id="Rectangle" fill="#ECE7EA" transform="translate(295.336969, 169.797364) scale(-1, 1) translate(-295.336969, -169.797364) "></path>
+                <text id="Done,-that-was-fast!" font-family="LucidaGrande, Lucida Grande" font-size="25" font-weight="normal" fill="#F14742">
+                    <tspan x="50" y="170">Done, that was fast!  </tspan>
+                    <tspan x="307.824707" y="170" font-family="AppleColorEmoji, Apple Color Emoji">🍻</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

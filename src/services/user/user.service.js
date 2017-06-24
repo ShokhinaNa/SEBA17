@@ -18,17 +18,17 @@ export default class UserService {
         return 'UserService';
     }
 
-    signup(user, pass, useremail) {
+    signup(email, pass, name) {
         return this.$http.post(`${ this.API_URL }/user/signup`, {
-            username: user,
+            username: name,
             password: pass,
-            useremail: useremail
+            useremail: email
         });
     }
 
-    login(user, pass) {
+    login(email, pass) {
         return this.$http.post(`${ this.API_URL }/user/login`, {
-            username: user,
+            useremail: email,
             password: pass
         });
     }
@@ -46,9 +46,25 @@ export default class UserService {
         return JSON.parse(this.$window.atob(base64)).user;
     }
 
+    findUserById(userId) {
+        return this.$http.get(`${ this.API_URL }/user/${ userId }`).then(response => {
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            })
+        })
+    }
+
+    searchUsersByNameOrEmail(searchText) {
+        let query = new Buffer(searchText).toString('base64');
+        return this.$http.get(`${ this.API_URL }/user/search/${ query }`).then(response => {
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            })
+        })
+    }
+
     isAuthenticated() {
         return !!this.$window.localStorage['jwtToken'];
     }
-
 
 }

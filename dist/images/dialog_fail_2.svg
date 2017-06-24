@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="630px" height="770px" viewBox="0 0 630 770" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <g id="Group-7" transform="translate(27.000000, 43.000000)">
+                <path d="M36.2611269,5.00395267 C36.2611269,2.24034592 38.4921811,0 41.2544014,0 L531.680664,0 C534.438373,0 536.673938,2.23386455 536.673938,5.00271993 L536.673938,94.1642347 C536.673938,96.9271606 534.434416,99.1669546 531.665154,99.1669546 L63.9486992,99.1669546 L29.2190485,115.151696 C26.7097453,116.306633 25.3915395,115.125508 26.2743138,112.51488 L36.2611269,82.9808781 L36.2611269,5.00395267 Z" id="Rectangle" fill="#ECE7EA"></path>
+                <text id="Hi-@team.-I-created" font-family="LucidaGrande, Lucida Grande" font-size="25" font-weight="normal" fill="#5A8BB0">
+                    <tspan x="55" y="30">Hi @team. I created a poll, we need to </tspan>
+                    <tspan x="55" y="59">meet this or next month with sales </tspan>
+                    <tspan x="55" y="88">dep, please vote</tspan>
+                </text>
+                <path d="M16.2611269,229.003953 C16.2611269,226.240346 18.4921811,224 21.2544014,224 L511.680664,224 C514.438373,224 516.673938,226.233865 516.673938,229.00272 L516.673938,318.164235 C516.673938,320.927161 514.434416,323.166955 511.665154,323.166955 L43.9486992,323.166955 L9.21904847,339.151696 C6.70974531,340.306633 5.39153954,339.125508 6.27431383,336.51488 L16.2611269,306.980878 L16.2611269,229.003953 Z" id="Rectangle" fill="#ECE7EA"></path>
+                <rect id="Rectangle" fill="#FFFFFF" opacity="0.571614583" x="44" y="240" width="448" height="67.9172337" rx="5"></rect>
+                <path d="M16.2611269,229.003953 C16.2611269,226.240346 18.4921811,224 21.2544014,224 L511.680664,224 C514.438373,224 516.673938,226.233865 516.673938,229.00272 L516.673938,318.164235 C516.673938,320.927161 514.434416,323.166955 511.665154,323.166955 L43.9486992,323.166955 L9.21904847,339.151696 C6.70974531,340.306633 5.39153954,339.125508 6.27431383,336.51488 L16.2611269,306.980878 L16.2611269,229.003953 Z" id="Rectangle" fill="#ECE7EA"></path>
+                <text id="Yeah,-just-fill-it-d" font-family="LucidaGrande, Lucida Grande" font-size="25" font-weight="normal" fill="#5A8BB0">
+                    <tspan x="44" y="284">Yeah, just fill it during lunch break</tspan>
+                </text>
+                <path d="M10.2611269,348.003953 C10.2611269,345.240346 12.4921811,343 15.2544014,343 L505.680664,343 C508.438373,343 510.673938,345.233865 510.673938,348.00272 L510.673938,437.164235 C510.673938,439.927161 508.434416,442.166955 505.665154,442.166955 L37.9486992,442.166955 L3.21904847,458.151696 C0.709745315,459.306633 -0.608460456,458.125508 0.274313832,455.51488 L10.2611269,425.980878 L10.2611269,348.003953 Z" id="Rectangle" fill="#ECE7EA"></path>
+                <text id="Time-for-a-daily-sta" font-family="LucidaGrande, Lucida Grande" font-size="25" font-weight="normal" fill="#5A8BB0">
+                    <tspan x="44" y="388.371582">Time for a daily standup, report </tspan>
+                    <tspan x="44" y="417.371582">on what you did yesterday</tspan>
+                </text>
+                <path d="M76.2611269,117.003953 C76.2611269,114.240346 78.4921811,112 81.2544014,112 L571.680664,112 C574.438373,112 576.673938,114.233865 576.673938,117.00272 L576.673938,206.164235 C576.673938,208.927161 574.434416,211.166955 571.665154,211.166955 L103.948699,211.166955 L69.2190485,227.151696 C66.7097453,228.306633 65.3915395,227.125508 66.2743138,224.51488 L76.2611269,194.980878 L76.2611269,117.003953 Z" id="Rectangle" fill="#ECE7EA" transform="translate(321.336969, 169.797364) scale(-1, 1) translate(-321.336969, -169.797364) "></path>
+                <path d="M65.2611269,464.003953 C65.2611269,461.240346 67.4921811,459 70.2544014,459 L560.680664,459 C563.438373,459 565.673938,461.233865 565.673938,464.00272 L565.673938,553.164235 C565.673938,555.927161 563.434416,558.166955 560.665154,558.166955 L92.9486992,558.166955 L58.2190485,574.151696 C55.7097453,575.306633 54.3915395,574.125508 55.2743138,571.51488 L65.2611269,541.980878 L65.2611269,464.003953 Z" id="Rectangle" fill="#ECE7EA" transform="translate(310.336969, 516.797364) scale(-1, 1) translate(-310.336969, -516.797364) "></path>
+                <text id="Yesterday-I-filled-o" font-family="LucidaGrande, Lucida Grande" font-size="25" font-weight="normal" fill="#F14742">
+                    <tspan x="72" y="516">Yesterday I filled out the meeting poll</tspan>
+                </text>
+                <text id="But-there-are-256-op" font-family="LucidaGrande, Lucida Grande" font-size="25" font-weight="normal" fill="#F14742">
+                    <tspan x="76" y="171">But there are 256 options... </tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

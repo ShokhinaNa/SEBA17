@@ -1,0 +1,31 @@
+<md-card>
+    <md-card-header layout="column" layout-align="center center">
+        <div flex>
+            <md-card-title-text layout-align="center center">
+                <span class="md-headline">Create new meeting</span>
+            </md-card-title-text>
+        </div>
+        <br>
+
+        <!-- the links to our nested states using relative paths -->
+        <!-- add the active class if the state matches our ui-sref -->
+
+        <div flex id="status-buttons" class="text-center">
+            <a ui-sref-active="active" ui-sref=".basic"><span>1</span> Basic info</a>
+            <a ui-sref-active="active" ui-sref=".slots"><span>2</span> Date range</a>
+            <a ui-sref-active="active" ui-sref=".participants"><span>3</span> Participants</a>
+            <a ui-sref-active="active" ui-sref=".summary"><span>4</span> Summary</a>
+        </div>
+    </md-card-header>
+
+    <md-divider/>
+
+    <md-card-content layout="column" layout-align="center center">
+        <!-- use ng-submit to catch the form submission and use our Angular function -->
+        <form id="create-meeting-form" ng-submit="processForm()" >
+            <!-- our nested state views will be injected here -->
+            <div id="form-views" ui-view></div>
+        </form>
+    </md-card-content>
+
+</md-card>
