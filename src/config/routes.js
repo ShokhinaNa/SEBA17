@@ -23,6 +23,12 @@ function resolveMeeting($stateParams,meetingService){
     return meetingService.get($stateParams.meetingId);
 }
 
+resolveUserMeetings.$inject = ['$stateParams', MeetingsService.name, UserService.name];
+function resolveUserMeetings($stateParams,meetingService, userService){
+    var user = userService.getCurrentUser();
+    return meetingService.findByFacilitatorId(user._id);
+}
+
 resolveUserEmail.$inject = [UserService.name];
 function resolveUserEmail(userService) {
     return userService.getCurrentUserEmail();
@@ -58,7 +64,7 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/meetings',
             component: MeetingsComponent.name,
             resolve: {
-                meetings : resolveMeetings
+                meetings : resolveUserMeetings
             }
         })
         .state('meeting', {
