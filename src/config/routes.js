@@ -5,6 +5,7 @@ import MeetingsComponent from './../components/view-meetings/view-meetings.compo
 import LoginComponent from './../components/view-login/view-login.component';
 import SignupComponent from './../components/view-signup/view-signup.component';
 import MeetingCreateComponent from './../components/view-meeting-create/view-meeting-create.component';
+import SchedulingComponent from './../components/view-scheduling/view-scheduling.component';
 
 import MeetingsService from './../services/meetings/meetings.service';
 import UserService from './../services/user/user.service';
@@ -49,6 +50,10 @@ export default function config ($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise("/meetings");
 
     $stateProvider
+        .state('landingPage', {
+            url: '/',
+            component: ViewLandingPageComponent.name
+        })
         .state('meetings', {
             url: '/meetings',
             component: MeetingsComponent.name,
@@ -94,14 +99,21 @@ export default function config ($stateProvider, $urlRouterProvider){
         .state('success', {
             url: '/new/:meetingId',
             template: meetingCreateSuccessTemplate,
-    })
+        })
+        .state('scheduling', {
+        url: '/scheduling/:meetingId',
+        component: SchedulingComponent.name,
+        resolve: {
+            meeting : resolveMeeting
+            }
+        })
+
+
+
         .state('error', {
             url: '/error',
             template: '<h1>Unexpected Error</h1>'
-        })
-        .state('landingPage', {
-            url: '/',
-            component: ViewLandingPageComponent.name
         });
+
 }
 
