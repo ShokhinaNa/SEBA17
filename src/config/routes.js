@@ -53,7 +53,7 @@ config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config ($stateProvider, $urlRouterProvider){
 
     // For any unmatched url, redirect to /home
-    $urlRouterProvider.otherwise("/meetings");
+    $urlRouterProvider.otherwise("/");
 
     $stateProvider
         .state('landingPage', {
@@ -107,14 +107,12 @@ export default function config ($stateProvider, $urlRouterProvider){
             template: meetingCreateSuccessTemplate,
         })
         .state('scheduling', {
-        url: '/scheduling/:meetingId',
-        component: SchedulingComponent.name,
-        resolve: {
-            meeting : resolveMeeting
-            }
-        })
-
-
+            url: '/scheduling/:meetingId',
+            component: SchedulingComponent.name,
+            resolve: {
+                meeting : resolveMeeting
+                }
+            })
 
         .state('error', {
             url: '/error',
