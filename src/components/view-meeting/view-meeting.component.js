@@ -42,7 +42,9 @@ class ViewMeetingComponentController{
         }
     };
 
-
+    schedule() {
+        this.$state.go('scheduling', { meetingId: this.meeting['_id']})
+    }
 
     static get $inject(){
         return ['$state', MeetingsService.name, UserService.name];

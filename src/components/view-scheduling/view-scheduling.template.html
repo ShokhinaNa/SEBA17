@@ -1,6 +1,25 @@
 
-<div>
+<md-card>
     <h2>{{ $ctrl.meeting.name }}</h2>
     {{ $ctrl.meeting.purpose }}
-</div>
+
+    <p>{{ $ctrl.meeting.range[0] }} {{ $ctrl.meeting.range[1]}}</p>
+
+    <div class="scheduling">
+        <ul class="hour-header">
+            <li class="header-hour" ng-repeat="h in $ctrl.choosableHours">{{h}}:00</li>
+        </ul>
+
+        <div class="days">
+            <ul class="day" ng-repeat="day in $ctrl.getHumanMeetingDaysInRange()">
+                <h3 class="day-title">{{day}}</h3>
+                <div class="drag-area" ng-mousedown="$ctrl.start($event)"
+                     ng-mousemove="$ctrl.move($event)" ng-mouseup="$ctrl.stop($index)"></div>
+                <div class="cursor" ng-style="{'top':$ctrl.mouseY}"></div>
+                <div class="preview-block" ng-style="{'top':$ctrl.startY, 'height': $ctrl.heightY}"></div>
+                <li class="hour" ng-repeat="h in $ctrl.choosableHours"></li>
+            </ul>
+        </div>
+    </div>
+</md-card>
 
