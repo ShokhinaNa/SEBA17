@@ -22,6 +22,7 @@ import ViewSignup from './components/view-signup/view-signup';
 import ViewMeetingCreate from './components/view-meeting-create/view-meeting-create';
 import ViewLandingPage from './components/view-landing-page/view-landing-page';
 import ViewScheduling from './components/view-scheduling/view-scheduling';
+import ViewMeetingSuccess from './components/view-meeting-success/view-meeting-success';
 
 import 'md-date-range-picker'; // don't ask
 import 'md-date-range-picker/dist/md-date-range-picker.css';
@@ -41,6 +42,7 @@ let app = angular.module('app', [
     ViewMeetingCreate.name,
     ViewLandingPage.name,
     ViewScheduling.name,
+    ViewMeetingSuccess.name
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');
