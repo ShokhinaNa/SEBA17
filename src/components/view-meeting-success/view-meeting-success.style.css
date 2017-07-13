@@ -1,0 +1,101 @@
+/* BASIC STYLINGS
+============================================================================= */
+pre {
+    margin-bottom: 20px;
+}
+
+/* form styling */
+#form-container {
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#form-container .page-header {
+    margin: 0;
+    padding: 30px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/* numbered buttons */
+#status-buttons {
+}
+
+#status-buttons a {
+    color: #000;
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 30px;
+}
+
+#status-buttons span {
+    background: #FFFFFF;
+    color: #4D5061;
+    font-size: 20px;
+    height: 50px;
+    margin: 0 auto 10px;
+    width: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #4D5061;
+    display: block;
+    text-align: center;
+}
+
+/* active buttons */
+#status-buttons a.active span {
+    background: #F14742;
+    border-style: solid;
+    border-color: #F14742;
+    color: #fff;
+}
+
+/* ANIMATION STYLINGS
+============================================================================= */
+#create-meeting-form {
+    position: relative;
+    min-height: 300px;
+    min-width: 500px;
+    overflow: auto;
+    padding: 30px;
+}
+
+#create-meeting-form input,
+#create-meeting-form textarea {
+    width: 30em
+}
+
+#create-meeting-form input[type=number] {
+    width: 60px;
+}
+
+md-date-range-picker {
+    margin: 10px;
+}
+
+
+#heroform button {
+    background-color: #F14742;
+    border-radius: 3px;
+    color: #fff;
+    padding: 0.5em 2em;
+    border: none;
+    font-size: 1.2em;
+    align-self: flex-end;
+}
+
+#heroform img {
+    display: block;
+    height: 6em;
+}
+
+#heroform h1 {
+    font-size: 2em;
+}
+
+#heroform h2 {
+    font-size: 2em;
+}

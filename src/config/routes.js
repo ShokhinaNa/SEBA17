@@ -6,14 +6,15 @@ import LoginComponent from './../components/view-login/view-login.component';
 import SignupComponent from './../components/view-signup/view-signup.component';
 import MeetingCreateComponent from './../components/view-meeting-create/view-meeting-create.component';
 import SchedulingComponent from './../components/view-scheduling/view-scheduling.component';
+import MeetingSuccessComponent from './../components/view-meeting-success/view-meeting-success.component';
 
 import MeetingsService from './../services/meetings/meetings.service';
 import UserService from './../services/user/user.service';
 
-import meetingCreateBasicTemplate from './../components/view-meeting-create/view-meeting-create-basic.template.html'
-import meetingCreateSlotsTemplate from './../components/view-meeting-create/view-meeting-create-slots.template.html'
-import meetingCreateParticipantsTemplate from '../components/view-meeting-create/view-meeting-create-participants.template.html'
-import meetingCreateSummaryTemplate from './../components/view-meeting-create/view-meeting-create-summary.template.html'
+import MeetingCreateBasicTemplate from './../components/view-meeting-create/view-meeting-create-basic.template.html'
+import MeetingCreateSlotsTemplate from './../components/view-meeting-create/view-meeting-create-slots.template.html'
+import MeetingCreateParticipantsTemplate from '../components/view-meeting-create/view-meeting-create-participants.template.html'
+import MeetingCreateSummaryTemplate from './../components/view-meeting-create/view-meeting-create-summary.template.html'
 
 import ViewLandingPageComponent from './../components/view-landing-page/view-landing-page.component';
 import meetingCreateSuccessTemplate from './../components/view-meeting-create/view-meeting-create-success.template.html'
@@ -90,23 +91,26 @@ export default function config ($stateProvider, $urlRouterProvider){
         })
         .state('meetingCreate.basic', {
             url: '/basic',
-            template: meetingCreateBasicTemplate
+            template: MeetingCreateBasicTemplate
         })
         .state('meetingCreate.slots', {
             url: '/slots',
-            template: meetingCreateSlotsTemplate
+            template: MeetingCreateSlotsTemplate
         })
         .state('meetingCreate.participants', {
             url: '/participants',
-            template: meetingCreateParticipantsTemplate,
+            template: MeetingCreateParticipantsTemplate,
         })
         .state('meetingCreate.summary', {
             url: '/summary',
-            template: meetingCreateSummaryTemplate,
+            template: MeetingCreateSummaryTemplate,
         })
         .state('success', {
             url: '/new/:meetingId',
-            template: meetingCreateSuccessTemplate,
+            component: MeetingSuccessComponent.name,
+            resolve: {
+                meeting : resolveMeeting
+            }
         })
         .state('scheduling', {
             url: '/scheduling/:meetingId',
