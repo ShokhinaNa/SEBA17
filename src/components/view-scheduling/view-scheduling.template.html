@@ -3,7 +3,7 @@
     <h2>{{ $ctrl.meeting.name }}</h2>
     {{ $ctrl.meeting.purpose }}
 
-    <p>{{ $ctrl.meeting.range[0] }} {{ $ctrl.meeting.range[1]}}</p>
+    <p>Enter your availability:</p>
 
     <div class="scheduling">
         <ul class="hour-header">
@@ -15,6 +15,9 @@
                 <h3 class="day-title">{{day}}</h3>
                 <div class="drag-area" ng-mousedown="$ctrl.start($event)"
                      ng-mousemove="$ctrl.move($event)" ng-mouseup="$ctrl.stop($index)"></div>
+                <div class="slot" ng-repeat="slot in $ctrl.getSlotsForDay($index)"
+                     ng-style="{'top': slot.startY, 'height': slot.heightY}"
+                     ng-mousedown="$ctrl.removeSlot(slot.index)"></div>
                 <div class="cursor" ng-style="{'top':$ctrl.mouseY}"></div>
                 <div class="preview-block" ng-style="{'top':$ctrl.startY, 'height': $ctrl.heightY}"></div>
                 <li class="hour" ng-repeat="h in $ctrl.choosableHours"></li>

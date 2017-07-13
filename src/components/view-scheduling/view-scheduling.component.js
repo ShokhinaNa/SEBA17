@@ -31,6 +31,7 @@ class ViewSchedulingComponentController{
         this.morning = 6;
         this.evening = 22;
         this.choosableHours = range(this.morning, this.evening, 1);
+        this.slotsForDay = [];
     }
 
 
@@ -67,6 +68,33 @@ class ViewSchedulingComponentController{
         return this.humanDaysInRange;
     }
 
+    getSlotsForDay($index) {
+        if (typeof this.slotsForDay[$index] === "undefined") {
+            let availability = this.meeting.availabilities.find(availability =>
+                availability.user === this.UserService.getCurrentUser()._id
+            );
+
+            if (!availability) {
+                this.slotsForDay[$index] = [];
+            } else {
+                const days = this.getMeetingDaysInRange();
+                // first map then filter to keep correct indices
+                this.slotsForDay[$index] = availability.slots.map((slot, i) => ({
+                    startY: this.timeToOffsetY(slot.range[0]) + 'px',
+                    heightY: (this.timeToOffsetY(slot.range[1])
+                                - this.timeToOffsetY(slot.range[0])) + 'px',
+                    index: i,
+                    range: slot.range
+                })).filter(slot =>
+                    slot.range[0].getTime() > days[$index].getTime() &&
+                    (!days[$index + 1] || slot.range[1].getTime() < days[$index + 1].getTime())
+                );
+            }
+        }
+
+        return this.slotsForDay[$index]
+    }
+
     start(event) {
         this.mouseY = this.startY = event.offsetY + 'px';
         event.preventDefault();
@@ -82,13 +110,56 @@ class ViewSchedulingComponentController{
     stop($index) {
         let day = this.daysInRange[$index];
 
-        console.log(
-            offsetYtoTime(day, parseInt(this.startY, 10), this.morning),
-            offsetYtoTime(day, parseInt(this.mouseY, 10), this.morning)
+        let availabilityStart = this.offsetYtoTime(day, parseInt(this.startY, 10));
+        let availabilityEnd = this.offsetYtoTime(day, parseInt(this.mouseY, 10));
+
+        let availability = this.meeting.availabilities.find(availability =>
+            availability.user === this.UserService.getCurrentUser()._id
         );
+
+        if (!availability) {
+            availability = {
+                user: this.UserService.getCurrentUser()._id,
+                slots: []
+            };
+            this.meeting.availabilities.push(availability);
+        }
+
+        availability.slots.push({
+            range: [availabilityStart, availabilityEnd],
+            priority: 1
+        });
+
+        // invalidate slots to display
+        this.slotsForDay = [];
+
+        // TODO sync with server
 
         this.heightY = "0px";
         this.startY = undefined;
+    }
+
+    removeSlot(slotIndex) {
+        let availability = this.meeting.availabilities.find(availability =>
+            availability.user === this.UserService.getCurrentUser()._id
+        );
+
+        availability.slots.splice(slotIndex, 1);
+
+        // invalidate slots to display
+        this.slotsForDay = [];
+    }
+
+    offsetYtoTime(baseDate, offset) {
+        let hours = this.morning + (offset - 64) / 48; // see style
+        let newDate = new Date(baseDate);
+        newDate.setHours(hours, (hours * 60) % 60);
+        return newDate;
+    }
+
+    timeToOffsetY(date) {
+        let hoursOffset = date.getHours() + date.getMinutes()/60 - this.morning;
+        return hoursOffset * 48 + 64;
     }
 }
 
@@ -96,13 +167,6 @@ function range(start, stop, step){
     let a=[start], b=start;
     while(b<stop){b+=step;a.push(b)}
     return a;
-}
-
-function offsetYtoTime(baseDate, offset, morning) {
-    let hours = morning + (offset - 64) / 48; // see style
-    let newDate = new Date(baseDate);
-    newDate.setHours(hours, (hours * 60) % 60);
-    return newDate;
 }
 
 export default ViewSchedulingComponent;
