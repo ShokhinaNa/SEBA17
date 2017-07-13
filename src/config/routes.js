@@ -17,6 +17,8 @@ import meetingCreateSummaryTemplate from './../components/view-meeting-create/vi
 
 import ViewLandingPageComponent from './../components/view-landing-page/view-landing-page.component';
 import meetingCreateSuccessTemplate from './../components/view-meeting-create/view-meeting-create-success.template.html'
+import meetingSuccessTimeslotsTemplate from './../components/view-scheduling/view-scheduling-success.template.html'
+
 
 resolveMeeting.$inject = ['$stateParams', MeetingsService.name];
 function resolveMeeting($stateParams,meetingService){
@@ -113,7 +115,10 @@ export default function config ($stateProvider, $urlRouterProvider){
                 meeting : resolveMeeting
                 }
             })
-
+        .state('successTimeslots', {
+            url: '/successTimeslots',
+            template: meetingSuccessTimeslotsTemplate,
+        })
         .state('error', {
             url: '/error',
             template: '<h1>Unexpected Error</h1>'

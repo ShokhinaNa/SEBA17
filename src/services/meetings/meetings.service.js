@@ -29,7 +29,7 @@ export default class MeetingsService {
         let url = `${ this.resourceUrl }${ id }`;
         return this.$http.get(url).then(responce => {
             return new Promise((resolve, reject) => {
-                resolve(responce.data);
+                resolve(convertDatesFromStrings(responce.data));
             });
         })
     }
@@ -61,4 +61,25 @@ export default class MeetingsService {
         })
     }
 
+    saveTimeslots(meeting) {
+        let url = `${ this.resourceUrl }${meeting._id}/timeslots`;
+        return this.$http.put(url,meeting).then(responce => {
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+            });
+        })
+    }
+}
+
+function convertDatesFromStrings(meeting) {
+    meeting.range[0] = new Date(meeting.range[0]);
+    meeting.range[1] = new Date(meeting.range[1]);
+    meeting.arranged_timeslot = new Date(meeting.arranged_timeslot);
+    for (let availability of meeting.availabilities) {
+        for (let slot of availability.slots) {
+            slot.range[0] = new Date(slot.range[0]);
+            slot.range[1] = new Date(slot.range[1]);
+        }
+    }
+    return meeting;
 }

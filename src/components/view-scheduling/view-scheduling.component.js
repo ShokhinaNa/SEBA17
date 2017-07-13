@@ -133,8 +133,6 @@ class ViewSchedulingComponentController{
         // invalidate slots to display
         this.slotsForDay = [];
 
-        // TODO sync with server
-
         this.heightY = "0px";
         this.startY = undefined;
     }
@@ -160,6 +158,13 @@ class ViewSchedulingComponentController{
     timeToOffsetY(date) {
         let hoursOffset = date.getHours() + date.getMinutes()/60 - this.morning;
         return hoursOffset * 48 + 64;
+    }
+
+    saveTimeslots() {
+        this.MeetingsService.saveTimeslots(this.meeting).then(data => {
+            let _id = data['_id'];
+            this.$state.go('successTimeslots', {meetingId: _id});
+        });
     }
 }
 

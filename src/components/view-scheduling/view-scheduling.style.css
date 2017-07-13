@@ -106,3 +106,19 @@
     color: #ccc;
 }
 
+#heroform {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#heroform button {
+    background-color: #F14742;
+    border-radius: 3px;
+    color: #fff;
+    padding: 0.5em 2em;
+    border: none;
+    font-size: 1.2em;
+    align-self: flex-end;
+}
