@@ -17,7 +17,6 @@ import MeetingCreateParticipantsTemplate from '../components/view-meeting-create
 import MeetingCreateSummaryTemplate from './../components/view-meeting-create/view-meeting-create-summary.template.html'
 
 import ViewLandingPageComponent from './../components/view-landing-page/view-landing-page.component';
-import meetingCreateSuccessTemplate from './../components/view-meeting-create/view-meeting-create-success.template.html'
 import meetingSuccessTimeslotsTemplate from './../components/view-scheduling/view-scheduling-success.template.html'
 
 
