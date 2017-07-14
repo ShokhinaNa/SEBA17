@@ -28,10 +28,17 @@ class ViewSchedulingComponentController{
         this.$state = $state;
         this.MeetingsService = MeetingsService;
         this.UserService = UserService;
-        this.morning = 6;
-        this.evening = 22;
+        this.morning = 9;
+        this.evening = 21;
         this.choosableHours = range(this.morning, this.evening, 1);
         this.slotsForDay = [];
+    }
+
+    $onInit() {
+        console.log("time " + this.meeting.dayRange[0] +" "+ this.meeting.dayRange[1]);
+        if (this.meeting.dayRange[0] === null) this.meeting.dayRange[0] = 9;
+        if (this.meeting.dayRange[1] === null) this.meeting.dayRange[1] = 21;
+        this.choosableHours = range(this.meeting.dayRange[0], this.meeting.dayRange[1], 1);
     }
 
 
