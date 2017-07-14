@@ -41,7 +41,7 @@ class ViewMeetingCreateComponentController {
 
         this.meeting.durationParts = {
             days: 0,
-            hours: 0,
+            hours: 1,
             minutes: 0
         };
 

@@ -29,9 +29,6 @@ class ViewMeetingSuccessComponentController {
 
 
     setAvailability() {
-        console.log("ID!");
-        console.log("ID    " + this.id);
-
         this.$state.go('scheduling', {meetingId: this.meeting['_id']});
     }
 

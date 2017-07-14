@@ -120,6 +120,12 @@ class ViewSchedulingComponentController{
         let availabilityStart = this.offsetYtoTime(day, parseInt(this.startY, 10));
         let availabilityEnd = this.offsetYtoTime(day, parseInt(this.mouseY, 10));
 
+        if((availabilityEnd - availabilityStart)/1000 <= 5) {
+            this.heightY = "0px";
+            this.startY = undefined;
+            return;
+        }
+
         let availability = this.meeting.availabilities.find(availability =>
             availability.user === this.UserService.getCurrentUser()._id
         );
