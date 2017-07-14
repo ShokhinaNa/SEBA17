@@ -168,6 +168,11 @@ class ViewSchedulingComponentController{
     }
 
     saveTimeslots() {
+        this.meeting.availabilities.forEach(function (availability) {
+            availability.slots.forEach(function (slot) {
+                console.log("Slots: " + slot.range);
+            });
+        });
         this.MeetingsService.saveTimeslots(this.meeting).then(data => {
             let _id = data['_id'];
             this.$state.go('successTimeslots', {meetingId: _id});
