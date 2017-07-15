@@ -46,6 +46,11 @@ class ViewMeetingComponentController{
         this.$state.go('scheduling', { meetingId: this.meeting['_id']})
     }
 
+    scheduleApprove() {
+        console.log("I am here");
+        this.$state.go('schedulingApprove', { meetingId: this.meeting['_id']})
+    }
+
     static get $inject(){
         return ['$state', MeetingsService.name, UserService.name];
     }
