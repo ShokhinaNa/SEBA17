@@ -7,15 +7,37 @@
         </md-card-title-text>
     </md-card-title>
 
+    <md-card-actions>
+        <p>Choose a final time:</p>
 
-    <div id="heroform">
-        <div class="form-group" layout="row" layout-align="space-around center" layout-margin="10px">
-            <button class="md-raised" style="background-color:#4D5061;color:white" ng-click="$ctrl.cancel()">Cancel</button>
-            <button class="md-raised md-primary" type="submit">
-                Save
-                <md-tooltip md-direction="top">Save and send notification to participants</md-tooltip></button>
+        <div class="scheduling">
+            <ul class="hour-header">
+                <li class="header-hour" ng-repeat="h in $ctrl.choosableHours">{{h}}:00</li>
+            </ul>
+
+            <div class="days">
+                <ul class="day" ng-repeat="day in $ctrl.getHumanMeetingDaysInRange()">
+                    <h3 class="day-title">{{day}}</h3>
+                    <div class="choose-drag-area" ng-mousedown="$ctrl.start($event)"
+                         ng-mousemove="$ctrl.move($event, $index)" ng-mouseup="$ctrl.stop($index)"></div>
+                    <div class="best-slot" ng-repeat="slot in $ctrl.getSlotsForDay($index)"
+                         ng-style="{'top': slot.startY, 'height': slot.heightY}"
+                         ng-mousedown="$ctrl.removeSlot(slot.index)"></div>
+                    <div class="choose-cursor" ng-class="{valid: $ctrl.validStart}"
+                         ng-style="{'top':$ctrl.mouseY, 'height':$ctrl.eventHeightY}"></div>
+                    <div class="chosen-block" ng-class="{here: $ctrl.arrangedIndex == $index}"
+                         ng-style="{'top':$ctrl.arrangedY, 'height': $ctrl.eventHeightY}"></div>
+                    <li class="hour" ng-repeat="h in $ctrl.choosableHours"></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</md-card>
 
+        <div id="heroform">
+            <div class="form-group" layout="row" layout-align="space-around center" layout-margin="10px">
+                <button class="md-raised" style="background-color:#4D5061;color:white" ng-click="$ctrl.cancel()">Cancel</button>
+                <button class="md-raised md-primary" type="submit" ng-click="$ctrl.saveTimeslots()">Save</button>
+            </div>
+        </div>
+    </md-card-actions>
+</md-card>
 

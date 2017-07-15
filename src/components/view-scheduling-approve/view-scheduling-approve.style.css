@@ -25,21 +25,25 @@
     text-align: center;
 }
 
-.cursor {
+.choose-cursor {
     display: none;
     position: absolute;
-    background-color: #aaa;
+    background-color: #eee;
     width: 100%;
     height: 1px;
     left: 0;
     top: 4.3em;
 }
 
-.day:hover .cursor {
+.day:hover .choose-cursor {
     display: block;
 }
 
-.drag-area {
+.choose-cursor.valid {
+    background-color: rgba(28, 147, 0, 0.5);
+}
+
+.choose-drag-area {
     position: absolute;
     top: 0;
     right: 0;
@@ -48,37 +52,28 @@
     z-index: 3;
 }
 
-.preview-block {
+.chosen-block {
     display: none;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(28, 147, 0, 0.75);
     width: 100%;
     height: 0;
     left: 0;
     top: 0;
 }
 
-.slot {
-    position: absolute;
-    background-color: rgba(255, 0, 0, 0.5);
-    width: 100%;
-    height: 0;
-    left: 0;
-    top: 0;
-    z-index: 4;
-    cursor: pointer
-}
-
-.slot:hover + .cursor {
-    display: none;
-}
-
-.day:active .slot {
-    z-index: 2;
-}
-
-.day:hover .preview-block {
+.chosen-block.here {
     display: block;
+}
+
+.best-slot {
+    position: absolute;
+    background-color: rgba(28, 147, 0, 0.25);
+    width: 100%;
+    height: 0;
+    left: 0;
+    top: 0;
+    z-index: 2;
 }
 
 .hour {
