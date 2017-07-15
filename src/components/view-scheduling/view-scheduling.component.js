@@ -74,7 +74,7 @@ class ViewSchedulingComponentController{
         if (!this.daysInRange) {
             this.getMeetingDaysInRange();
             this.humanDaysInRange = this.daysInRange.map(date =>
-                weekdays[date.getDay()] + "\xa0" + date.getDate() + "." + date.getMonth() + "." + (date.getFullYear() % 100)
+                weekdays[date.getDay()] + "\xa0" + date.getDate() + "." + (date.getMonth() + 1) + "." + (date.getFullYear() % 100)
             )
         }
 
@@ -99,8 +99,8 @@ class ViewSchedulingComponentController{
                     index: i,
                     range: slot.range
                 })).filter(slot =>
-                    slot.range[0].getTime() > days[$index].getTime() &&
-                    (!days[$index + 1] || slot.range[1].getTime() < days[$index + 1].getTime())
+                    slot.range[0].getTime() >= days[$index].getTime() &&
+                    (!days[$index + 1] || slot.range[1].getTime() <= days[$index + 1].getTime())
                 );
             }
         }

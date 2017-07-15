@@ -113,7 +113,8 @@ export default function config ($stateProvider, $urlRouterProvider){
             resolve: {
                 meeting : resolveMeeting,
                 inviteId: resolveInviteId
-            }
+            },
+            params: {inviteId: null}
         })
         .state('schedulingApprove', {
             url: '/schedulingApprove/:meetingId',

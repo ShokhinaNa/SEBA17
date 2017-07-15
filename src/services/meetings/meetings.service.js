@@ -75,6 +75,10 @@ function convertDatesFromStrings(meeting) {
     meeting.range[0] = new Date(meeting.range[0]);
     meeting.range[1] = new Date(meeting.range[1]);
     meeting.arranged_timeslot = new Date(meeting.arranged_timeslot);
+    for (let bestSlot of meeting.bestSlots) {
+        bestSlot.range[0] = new Date(bestSlot.range[0]);
+        bestSlot.range[1] = new Date(bestSlot.range[1]);
+    }
     for (let availability of meeting.availabilities) {
         for (let slot of availability.slots) {
             slot.range[0] = new Date(slot.range[0]);
