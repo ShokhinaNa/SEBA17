@@ -36,9 +36,11 @@ class ViewSchedulingComponentController{
 
     $onInit() {
         console.log("time " + this.meeting.dayRange[0] +" "+ this.meeting.dayRange[1]);
-        if (this.meeting.dayRange[0] === null) this.meeting.dayRange[0] = 9;
-        if (this.meeting.dayRange[1] === null) this.meeting.dayRange[1] = 21;
-        this.choosableHours = range(this.meeting.dayRange[0], this.meeting.dayRange[1], 1);
+        if (this.meeting.dayRange[0])
+            this.morning = this.meeting.dayRange[0];
+        if (this.meeting.dayRange[1])
+            this.evening = this.meeting.dayRange[1];
+        this.choosableHours = range(this.morning, this.evening, 1);
     }
 
 
