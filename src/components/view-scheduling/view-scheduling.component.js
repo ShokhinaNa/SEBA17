@@ -12,7 +12,8 @@ class ViewSchedulingComponent {
         this.controller = ViewSchedulingComponentController;
         this.template = template;
         this.bindings = {
-            meeting: '<'
+            meeting: '<',
+            inviteId: '@'
         };
     }
 
@@ -34,6 +35,11 @@ class ViewSchedulingComponentController{
         this.slotsForDay = [];
     }
 
+    $onInit() {
+        if (!this.UserService.getCurrentUser()._id) {
+            this.UserService.setTemporaryUser(this.inviteId);
+        }
+    }
 
     static get $inject(){
         return ['$state', MeetingsService.name, UserService.name];

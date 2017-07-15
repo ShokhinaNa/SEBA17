@@ -25,6 +25,11 @@ function resolveMeeting($stateParams,meetingService){
     return meetingService.get($stateParams.meetingId);
 }
 
+resolveInviteId.$inject = ['$stateParams'];
+function resolveInviteId($stateParams){
+    return $stateParams.inviteId;
+}
+
 resolveUserMeetings.$inject = ['$stateParams', MeetingsService.name, UserService.name];
 function resolveUserMeetings($stateParams,meetingService, userService){
     var user = userService.getCurrentUser();
@@ -112,12 +117,13 @@ export default function config ($stateProvider, $urlRouterProvider){
             }
         })
         .state('scheduling', {
-            url: '/scheduling/:meetingId',
+            url: '/scheduling/:meetingId/:inviteId',
             component: SchedulingComponent.name,
             resolve: {
-                meeting : resolveMeeting
-                }
-            })
+                meeting : resolveMeeting,
+                inviteId: resolveInviteId
+            }
+        })
         .state('successTimeslots', {
             url: '/successTimeslots',
             template: meetingSuccessTimeslotsTemplate,
