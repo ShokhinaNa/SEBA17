@@ -12,7 +12,8 @@ class ViewSchedulingComponent {
         this.controller = ViewSchedulingComponentController;
         this.template = template;
         this.bindings = {
-            meeting: '<'
+            meeting: '<',
+            inviteId: '@'
         };
     }
 
@@ -35,6 +36,9 @@ class ViewSchedulingComponentController{
     }
 
     $onInit() {
+        if (!this.UserService.getCurrentUser()._id) {
+            this.UserService.setTemporaryUser(this.inviteId);
+        }
         console.log("time " + this.meeting.dayRange[0] +" "+ this.meeting.dayRange[1]);
         if (this.meeting.dayRange[0])
             this.morning = this.meeting.dayRange[0];
