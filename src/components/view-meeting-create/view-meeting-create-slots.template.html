@@ -1,20 +1,40 @@
-<p>Meeting Duration</p>
+<div layout="row" layout-align="space-around start">
 <div flex>
-    <md-input-container>
-        <label for="meetingDurationDays">Days</label>
-        <input type="number" min="0" class="form-control" name="meetingDurationDays"
-               ng-model="$ctrl.meeting.durationParts.days"/>
-    </md-input-container>
-    <md-input-container>
-        <label for="meetingDurationHours">Hours</label>
-        <input type="number" min="0" max="23" class="form-control" name="meetingDurationHours"
-               ng-model="$ctrl.meeting.durationParts.hours"/>
-    </md-input-container>
-    <md-input-container>
-        <label for="meetingDurationMinutes">Minutes</label>
-        <input type="number" min="0" max="59" step="5" class="form-control" name="meetingDurationMinutes"
-               ng-model="$ctrl.meeting.durationParts.minutes"/>
-    </md-input-container>
+        <p>Meeting Duration</p>
+        <div flex>
+            <md-input-container>
+                <label>Days</label>
+                <input type="number" min="0" class="form-control" name="meetingDurationDays"
+                       ng-model="$ctrl.meeting.durationParts.days"/>
+            </md-input-container>
+            <md-input-container>
+                <label>Hours</label>
+                <input type="number" min="0" max="23" class="form-control" name="meetingDurationHours"
+                       ng-model="$ctrl.meeting.durationParts.hours"/>
+            </md-input-container>
+            <md-input-container>
+                <label>Minutes</label>
+                <input type="number" min="0" max="59" step="5" class="form-control" name="meetingDurationMinutes"
+                       ng-model="$ctrl.meeting.durationParts.minutes"/>
+            </md-input-container>
+        </div>
+    </div>
+    <div flex>
+        <p>Meeting time boundaries</p>
+        <div flex>
+            <md-input-container style="width: 120px">
+                <label>Morning</label>
+                <input type="number" min="7" max="12" class="form-control" name="meetingDurationHoursStart"
+                       ng-model="$ctrl.meeting.dayRange[0]"/>
+            </md-input-container>
+            <md-input-container style="width: 120px">
+                <label>Evening</label>
+                <input type="number" min="18" max="23" class="form-control" name="meetingDurationHoursEnd"
+                       ng-model="$ctrl.meeting.dayRange[1]"/>
+            </md-input-container>
+        </div>
+        <span class="md-caption">Specify time period appropriate to your meeting (e.g. from 9.00 to 18.00)</span>
+    </div>
 </div>
 
 

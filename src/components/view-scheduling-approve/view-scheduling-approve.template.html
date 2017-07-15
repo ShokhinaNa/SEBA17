@@ -1,0 +1,21 @@
+<md-card>
+    <md-card-title>
+        <md-card-title-text  layout-align="center center">
+            <span class="md-display-1">{{$ctrl.meeting.name}}</span>
+            <span class="md-headline">{{$ctrl.meeting.purpose}}</span>
+            <md-divider></md-divider>
+        </md-card-title-text>
+    </md-card-title>
+
+
+    <div id="heroform">
+        <div class="form-group" layout="row" layout-align="space-around center" layout-margin="10px">
+            <button class="md-raised" style="background-color:#4D5061;color:white" ng-click="$ctrl.cancel()">Cancel</button>
+            <button class="md-raised md-primary" type="submit">
+                Save
+                <md-tooltip md-direction="top">Save and send notification to participants</md-tooltip></button>
+        </div>
+    </div>
+</md-card>
+
+

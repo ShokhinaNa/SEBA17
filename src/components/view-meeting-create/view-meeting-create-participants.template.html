@@ -14,7 +14,7 @@
     <md-not-found>
         <div ng-if="$ctrl.isValidEmail($ctrl.searchText)">
             Use "{{$ctrl.searchText}}" as
-            <a ng-click="$ctrl.newParticipantEmail($ctrl.searchText)">new participant email</a>.
+            <a class="underline-text" ng-click="$ctrl.newParticipantEmail($ctrl.searchText)">new participant email</a>.
         </div>
         <div ng-if="!$ctrl.isValidEmail($ctrl.searchText)">
             Nothing matches "{{$ctrl.searchText}}".

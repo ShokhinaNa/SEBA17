@@ -30,6 +30,10 @@ pre {
     margin: 30px;
 }
 
+.underline-text{
+    text-decoration: underline;
+}
+
 #status-buttons span {
     background: #FFFFFF;
     color: #4D5061;

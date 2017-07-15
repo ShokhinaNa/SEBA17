@@ -23,6 +23,7 @@ class ViewMeetingCreateComponentController {
     constructor($state, MeetingsService, UserService) {
         this.$state = $state;
         this.meeting = {};
+        this.meeting.dayRange = [9, 21];
         this.meeting.participants = []; // array of emails
         this.MeetingsService = MeetingsService;
         this.UserService = UserService;
@@ -40,7 +41,7 @@ class ViewMeetingCreateComponentController {
 
         this.meeting.durationParts = {
             days: 0,
-            hours: 0,
+            hours: 1,
             minutes: 0
         };
 
@@ -56,7 +57,6 @@ class ViewMeetingCreateComponentController {
             let user = this.getCurrentUser();
             this.addParticipant(user);
             this.MeetingsService.findByFacilitatorId(user._id).then(data => {
-                console.log("Received created meetings: " + JSON.stringify(data));
                 this.createdMeetings = data.map(m => {
                     m.display = "Meeting: " + m.name;
                     m.tooltip = m.participantEmails.join(", ");
