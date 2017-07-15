@@ -6,6 +6,7 @@ import LoginComponent from './../components/view-login/view-login.component';
 import SignupComponent from './../components/view-signup/view-signup.component';
 import MeetingCreateComponent from './../components/view-meeting-create/view-meeting-create.component';
 import SchedulingComponent from './../components/view-scheduling/view-scheduling.component';
+import SchedulingApproveComponent from './../components/view-scheduling-approve/view-scheduling-approve.component';
 import MeetingSuccessComponent from './../components/view-meeting-success/view-meeting-success.component';
 
 import MeetingsService from './../services/meetings/meetings.service';
@@ -35,16 +36,6 @@ resolveUserEmail.$inject = [UserService.name];
 function resolveUserEmail(userService) {
     return userService.getCurrentUserEmail();
 }
-
-// resolveCreatedMeetings.$inject = [UserService.name, MeetingsService.name];
-// function resolveCreatedMeetings(userService, meetingService){
-//     let userId = userService.getCurrentUser()._id;
-//     console.log("Requesting created meetings for user: " + userService.getCurrentUser());
-//     return meetingService.findByFacilitatorId(userId).then(data => {
-//         console.log("Received created meegings of user " + userId + ": " + JSON.stringify(data));
-//         return data;
-//     });
-// }
 
 resolveMeetings.$inject = [MeetingsService.name];
 function resolveMeetings(meetingService){
@@ -118,6 +109,13 @@ export default function config ($stateProvider, $urlRouterProvider){
                 meeting : resolveMeeting
                 }
             })
+        .state('schedulingApprove', {
+            url: '/schedulingApprove/:meetingId',
+            component: SchedulingApproveComponent.name,
+            resolve: {
+                meeting : resolveMeeting
+            }
+        })
         .state('successTimeslots', {
             url: '/successTimeslots',
             template: meetingSuccessTimeslotsTemplate,

@@ -1,30 +1,41 @@
+<md-card>
+    <md-card-title>
+        <md-card-title-text  layout-align="center center">
+            <span class="md-display-1">{{$ctrl.meeting.name}}</span>
+            <span class="md-headline">{{$ctrl.meeting.purpose}}</span>
+            <md-divider></md-divider>
+        </md-card-title-text>
+    </md-card-title>
 
-<h2>{{ $ctrl.meeting.name }}</h2>
-{{ $ctrl.meeting.purpose }}
+    <md-card-actions>
+    <p>Enter your availability:</p>
 
-<p>Enter your availability:</p>
-
-<div class="scheduling">
-    <ul class="hour-header">
-        <li class="header-hour" ng-repeat="h in $ctrl.choosableHours">{{h}}:00</li>
-    </ul>
-
-    <div class="days">
-        <ul class="day" ng-repeat="day in $ctrl.getHumanMeetingDaysInRange()">
-            <h3 class="day-title">{{day}}</h3>
-            <div class="drag-area" ng-mousedown="$ctrl.start($event)"
-                 ng-mousemove="$ctrl.move($event)" ng-mouseup="$ctrl.stop($index)"></div>
-            <div class="slot" ng-repeat="slot in $ctrl.getSlotsForDay($index)"
-                 ng-style="{'top': slot.startY, 'height': slot.heightY}"
-                 ng-mousedown="$ctrl.removeSlot(slot.index)"></div>
-            <div class="cursor" ng-style="{'top':$ctrl.mouseY}"></div>
-            <div class="preview-block" ng-style="{'top':$ctrl.startY, 'height': $ctrl.heightY}"></div>
-            <li class="hour" ng-repeat="h in $ctrl.choosableHours"></li>
+    <div class="scheduling">
+        <ul class="hour-header">
+            <li class="header-hour" ng-repeat="h in $ctrl.choosableHours">{{h}}:00</li>
         </ul>
-    </div>
-</div>
 
-<div id="heroform">
-    <button class="md-raised md-primary" type="submit" ng-click="$ctrl.saveTimeslots()">Save</button>
-</div>
+        <div class="days">
+            <ul class="day" ng-repeat="day in $ctrl.getHumanMeetingDaysInRange()">
+                <h3 class="day-title">{{day}}</h3>
+                <div class="drag-area" ng-mousedown="$ctrl.start($event)"
+                     ng-mousemove="$ctrl.move($event)" ng-mouseup="$ctrl.stop($index)"></div>
+                <div class="slot" ng-repeat="slot in $ctrl.getSlotsForDay($index)"
+                     ng-style="{'top': slot.startY, 'height': slot.heightY}"
+                     ng-mousedown="$ctrl.removeSlot(slot.index)"></div>
+                <div class="cursor" ng-style="{'top':$ctrl.mouseY}"></div>
+                <div class="preview-block" ng-style="{'top':$ctrl.startY, 'height': $ctrl.heightY}"></div>
+                <li class="hour" ng-repeat="h in $ctrl.choosableHours"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="heroform">
+        <div class="form-group" layout="row" layout-align="space-around center" layout-margin="10px">
+            <button class="md-raised" style="background-color:#4D5061;color:white" ng-click="$ctrl.cancel()">Cancel</button>
+            <button class="md-raised md-primary" type="submit" ng-click="$ctrl.saveTimeslots()">Save</button>
+        </div>
+    </div>
+    </md-card-actions>
+</md-card>
 

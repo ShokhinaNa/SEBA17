@@ -1,27 +1,61 @@
 <md-card>
-    <md-card-title>
-        <md-card-title-text>
+    <div layout="row" layout-align="space-between start">
+        <div flex>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-display-1">{{$ctrl.meeting.name}}</span>
+                    <span class="md-headline">{{$ctrl.meeting.purpose}}</span>
+                    <div class="form-group">
+                        <p>Location: {{$ctrl.meeting.location}}</p>
+                        <p>Duration: {{$ctrl.meeting.duration}}min</p>
+                        <p>Date range: {{ $ctrl.meeting.range[0] | date: 'mediumDate'}} - {{ $ctrl.meeting.range[1] |
+                            date: 'mediumDate'}} </p>
+                        <p>Participants:</p>
+                        <md-card>
+                            <md-list>
+                                <md-list-item ng-repeat="participant in $ctrl.meeting.participantEmails"
+                                              class="noright">
+                                    <p>{{participant}}</p>
+                                    <md-divider ng-if="!$last"></md-divider>
+                                </md-list-item>
+                            </md-list>
+                        </md-card>
+                    </div>
+                </md-card-title-text>
+            </md-card-title>
+        </div>
+
+        <div flex>
             <md-card-actions layout="row" layout-align="end center">
 
-                <md-button class="md-icon-button"aria-label="Schedule Meeting" ng-click="$ctrl.schedule()" >
-                    <md-icon><ng-md-icon icon="access_time" ></ng-md-icon></md-icon>
+                <md-button class="md-icon-button" aria-label="Schedule Meeting" ng-click="$ctrl.schedule()">
+                    <md-icon>
+                        <ng-md-icon icon="today"></ng-md-icon>
+                    </md-icon>
+                    <md-tooltip md-direction="bottom">Specify your schedule for this meeting</md-tooltip>
                 </md-button>
 
-                <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
-                    <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
+                <md-button class="md-icon-button" aria-label="Set meeting" ng-click="$ctrl.scheduleApprove()">
+                    <md-icon>
+                        <ng-md-icon icon="access_time"></ng-md-icon>
+                    </md-icon>
+                    <md-tooltip md-direction="bottom">Pick meeting time</md-tooltip>
+                </md-button>
+
+                <md-button class="md-icon-button" aria-label="Delete Item" ng-click="$ctrl.delete()">
+                    <md-icon>
+                        <ng-md-icon icon="delete"></ng-md-icon>
+                    </md-icon>
+                    <md-tooltip md-direction="bottom">Delete meeting</md-tooltip>
                 </md-button>
             </md-card-actions>
+        </div>
+    </div>
 
-            <span class="md-headline">{{$ctrl.meeting.name}}</span>
-            <span class="md-subhead">{{$ctrl.meeting.purpose}}</span>
-
-        </md-card-title-text>
-
-    </md-card-title>
-
-    <md-card-content>
-        <p>{{$ctrl.meeting.duration}}</p>
-    </md-card-content>
-
-
+    <div layout-align="end end">
+        <md-whiteframe id="heroform" class="md-whiteframe-1dp">
+            <span ng-if="$ctrl.meeting.availabilities.length != 1">{{$ctrl.meeting.availabilities.length}} people participated</span>
+            <span ng-if="$ctrl.meeting.availabilities.length == 1">{{$ctrl.meeting.availabilities.length}} person participated</span>
+        </md-whiteframe>
+    </div>
 </md-card>

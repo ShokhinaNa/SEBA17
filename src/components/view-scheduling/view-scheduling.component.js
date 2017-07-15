@@ -186,6 +186,10 @@ class ViewSchedulingComponentController{
             this.$state.go('successTimeslots', {meetingId: _id});
         });
     }
+
+    cancel() {
+        this.$state.go('meeting',{ meetingId:this.meeting['_id']});
+    }
 }
 
 function range(start, stop, step){
