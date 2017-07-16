@@ -103,8 +103,10 @@ class ViewSchedulingComponentController{
                     index: i,
                     range: slot.range
                 })).filter(slot =>
-                    slot.range[0].getTime() >= days[$index].getTime() &&
-                    (!days[$index + 1] || slot.range[1].getTime() <= days[$index + 1].getTime())
+                    (slot.range[0].getTime() >= days[$index].getTime() &&
+                        slot.range[0].getTime() <= (days[$index].getTime() + 1000 * 60 * 60 * 24))
+                    || (slot.range[1].getTime() >= days[$index].getTime() &&
+                        slot.range[1].getTime() <= (days[$index].getTime() + 1000 * 60 * 60 * 24))
                 );
             }
         }
@@ -193,6 +195,30 @@ class ViewSchedulingComponentController{
             let _id = data['_id'];
             this.$state.go('successTimeslots', {meetingId: _id});
         });
+    }
+
+    importCalendar() {
+        this.MeetingsService.importCalendar(
+            this.meeting._id, this.calendarUrl, this.UserService.getCurrentUser()._id
+        ).then(newSlots => {
+            let availability = this.meeting.availabilities.find(availability =>
+                availability.user === this.UserService.getCurrentUser()._id
+            );
+
+            if (!availability) {
+                availability = {
+                    user: this.UserService.getCurrentUser()._id,
+                    slots: []
+                };
+                this.meeting.availabilities.push(availability);
+            }
+
+            availability.slots = availability.slots.filter(slot => !slot.imported);
+            availability.slots = availability.slots.concat(newSlots);
+
+            // invalidate slots to display
+            this.slotsForDay = [];
+        })
     }
 
     cancel() {

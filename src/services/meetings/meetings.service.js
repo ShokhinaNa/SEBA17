@@ -78,6 +78,19 @@ export default class MeetingsService {
             });
         })
     }
+
+    importCalendar(meetingId, calendarUrl, userId) {
+        let url = `${ this.resourceUrl }${meetingId}/importCalendar/${userId}`;
+        return this.$http.put(url,{calendarUrl: calendarUrl}).then(responce => {
+            return new Promise((resolve, reject) => {
+                resolve(responce.data.map(slot => {
+                    slot.range[0] = new Date(slot.range[0]);
+                    slot.range[1] = new Date(slot.range[1]);
+                    return slot
+                }));
+            });
+        })
+    }
 }
 
 function convertDatesFromStrings(meeting) {
