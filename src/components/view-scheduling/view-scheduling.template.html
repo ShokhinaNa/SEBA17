@@ -10,6 +10,12 @@
     <md-card-actions>
     <p>Enter your availability:</p>
 
+    <md-input-container>
+        <label>Calendar Feed URL</label>
+        <input name="calendar-url" class="form-control" ng-model="$ctrl.calendarUrl" type="text">
+        <ng-button ng-click="$ctrl.importCalendar()" class="md-raised md-primary">Import Calendar</ng-button>
+    </md-input-container>
+
     <div class="scheduling">
         <ul class="hour-header">
             <li class="header-hour" ng-repeat="h in $ctrl.choosableHours">{{h}}:00</li>
