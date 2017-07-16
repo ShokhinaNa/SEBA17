@@ -8,6 +8,23 @@
     </md-card-title>
 
     <md-card-actions>
+        <div ng-if="!$ctrl.isAuthenticated()" flex class="form-group"  layout-align="start center">
+            <p>Location: {{$ctrl.meeting.location}}</p>
+            <p>Duration: {{$ctrl.meeting.duration}}min</p>
+            <p>Date range: {{ $ctrl.meeting.range[0] | date: 'mediumDate'}} - {{ $ctrl.meeting.range[1] |
+                date: 'mediumDate'}} </p>
+            <p>Participants:</p>
+            <md-card>
+                <md-list>
+                    <md-list-item ng-repeat="participant in $ctrl.meeting.participantEmails"
+                                  class="noright">
+                        <p>{{participant}}</p>
+                        <md-divider ng-if="!$last"></md-divider>
+                    </md-list-item>
+                </md-list>
+            </md-card>
+            <md-divider></md-divider>
+        </div>
     <p>Enter your availability:</p>
 
     <div class="scheduling">

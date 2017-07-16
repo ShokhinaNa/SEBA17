@@ -40,6 +40,9 @@
 <div id="heroform">
     <div class="form-group" layout="row" layout-align="space-around center" layout-margin="10px">
         <button class="md-raised" style="background-color:#4D5061;color:white" ng-click="$ctrl.cancel()">Cancel</button>
-        <button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Create</button>
+        <button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">
+            <md-tooltip md-direction="top">Create meeting and send invitations to participants</md-tooltip>
+            Create
+        </button>
     </div>
 </div>

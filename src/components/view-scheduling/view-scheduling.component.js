@@ -52,6 +52,10 @@ class ViewSchedulingComponentController{
         return ['$state', MeetingsService.name, UserService.name];
     }
 
+    isAuthenticated(){
+        return this.UserService.isAuthenticated();
+    }
+
     getMeetingDaysInRange() {
         if (!this.daysInRange) {
             const millisecondsPerDay = 24 * 60 * 60 * 1000;
