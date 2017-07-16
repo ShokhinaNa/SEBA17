@@ -50,6 +50,13 @@ class ViewMeetingComponentController{
         this.$state.go('schedulingApprove', { meetingId: this.meeting['_id']})
     }
 
+    isTimeslotArranged(){
+        if (!this.meeting.arranged_timeslot || isNaN(this.meeting.arranged_timeslot.getTime())) {
+            return false;
+        }
+        return true;
+    }
+
     static get $inject(){
         return ['$state', MeetingsService.name, UserService.name];
     }
