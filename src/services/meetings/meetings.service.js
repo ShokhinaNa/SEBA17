@@ -70,6 +70,15 @@ export default class MeetingsService {
         })
     }
 
+    saveArrangedTimeSlot(meeting) {
+        let url = `${ this.resourceUrl }${meeting._id}/arrangedtimeslot`;
+        return this.$http.put(url,meeting).then(responce => {
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+            });
+        })
+    }
+
     importCalendar(meetingId, calendarUrl, userId) {
         let url = `${ this.resourceUrl }${meetingId}/importCalendar/${userId}`;
         return this.$http.put(url,{calendarUrl: calendarUrl}).then(responce => {

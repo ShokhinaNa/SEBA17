@@ -35,7 +35,10 @@
         <div id="heroform">
             <div class="form-group" layout="row" layout-align="space-around center" layout-margin="10px">
                 <button class="md-raised" style="background-color:#4D5061;color:white" ng-click="$ctrl.cancel()">Cancel</button>
-                <button class="md-raised md-primary" type="submit" ng-click="$ctrl.saveTimeslots()">Save</button>
+                <button class="md-raised md-primary" type="submit" ng-click="$ctrl.saveArrangedTimeSlot()">
+                    <md-tooltip md-direction="top">Save meeting time and send notifications to participants</md-tooltip>
+                    Save
+                </button>
             </div>
         </div>
     </md-card-actions>
