@@ -47,7 +47,6 @@ class ViewMeetingComponentController{
     }
 
     scheduleApprove() {
-        console.log("I am here");
         this.$state.go('schedulingApprove', { meetingId: this.meeting['_id']})
     }
 

@@ -141,6 +141,17 @@ class ViewSchedulingApproveComponentController{
             this.$state.go('meeting',{ meetingId:this.meeting['_id']});
     }
 
+    saveArrangedTimeSlot() {
+        const arranged = this.meeting.arranged_timeslot;
+        if (!arranged || isNaN(arranged.getTime())) {
+            return;
+        }
+        this.MeetingsService.saveArrangedTimeSlot(this.meeting).then(data => {
+            let _id = data['_id'];
+            this.$state.go('successTimeslot', {meetingId: _id});
+        });
+    }
+
     static get $inject(){
         return ['$state', MeetingsService.name, UserService.name];
     }
