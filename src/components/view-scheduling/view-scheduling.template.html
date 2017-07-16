@@ -1,21 +1,19 @@
 <md-card>
     <md-card-title>
         <md-card-title-text  layout-align="center center">
-            <span class="md-display-1">{{$ctrl.meeting.name}}</span>
-            <span class="md-headline">{{$ctrl.meeting.purpose}}</span>
+            <span class="md-display-1">Your availability for {{$ctrl.meeting.name}}</span>
+            <span style="text-align: center">Just click & drag to block time ranges when you are busy, or import your calendar.</span>
         </md-card-title-text>
     </md-card-title>
-
     <md-card-actions>
         <div>
-            <p>Enter your availability:</p>
-
+            <p>{{$ctrl.meeting.purpose}}</p>
             <md-input-container>
                 <label>Calendar Feed URL</label>
-                <input name="calendar-url" class="form-control" ng-model="$ctrl.calendarUrl" type="text">
-                <ng-button ng-click="$ctrl.importCalendar()" class="md-raised md-primary">Import Calendar</ng-button>
+                <input name="calendar-url" class="form-control" ng-model="$ctrl.calendarUrl" type="text" style="width: 20em">
             </md-input-container>
-
+            <ng-button ng-click="$ctrl.importCalendar()" class="md-raised md-primary" style="position: relative; vertical-align: top; top: 1.6em; background-color: #eee; padding: 0.3em; border-radius: 0.2em; cursor: pointer;"
+                >Import Calendar</ng-button>
         </br>
             </br>
         </div>
