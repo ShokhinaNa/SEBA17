@@ -20,8 +20,9 @@ class ViewMeetingCreateComponent {
 }
 
 class ViewMeetingCreateComponentController {
-    constructor($state, MeetingsService, UserService) {
+    constructor($state, $mdToast, MeetingsService, UserService) {
         this.$state = $state;
+        this.$mdToast = $mdToast;
         this.meeting = {};
         this.meeting.dayRange = [9, 21];
         this.meeting.participants = []; // array of emails
@@ -166,21 +167,48 @@ class ViewMeetingCreateComponentController {
     save() {
         let user = this.UserService.getCurrentUser();
 
-        this.meeting.participantEmails = this.meeting.participants.map(p => p.useremail);
+        this.meeting.participantEmails = this.meeting.participants.map(p => p.useremail).filter(email => email);
         this.meeting.facilitator = user['_id'];
         this.meeting.range = [this.meeting.date.startDate, this.meeting.date.endDate];
         this.meeting.duration = this.meeting.durationParts.minutes + this.meeting.durationParts.hours * 60 + this.meeting.durationParts.days * 24 * 60;
-        console.log("Creating new meeting: " + JSON.stringify(this.meeting));
+        this.meeting.purpose = this.meeting.purpose || '';
+        this.meeting.location = this.meeting.location || '';
+
+        if (!this.meeting.name || !/\S/.test(this.meeting.name)) {
+            this.showToast('Please specify meeting title');
+            return;
+        }
+
+        if (this.meeting.participantEmails.length === 0) {
+            this.showToast('Please add at least one participant');
+            return;
+        }
+
+        if (!this.meeting.range[0] || !this.meeting.range[1]) {
+            this.showToast('Please specify meeting date range');
+            return;
+        }
+
+        // console.log("Creating new meeting: " + JSON.stringify(this.meeting));
         this.MeetingsService.create(this.meeting).then(data => {
             let _id = data['_id'];
             this.$state.go('success', {meetingId: _id});
         });
-
     };
+
+    showToast(text) {
+        if (!text) return;
+        this.$mdToast.show(
+            this.$mdToast.simple()
+            .textContent(text)
+            .position('top center')
+            .hideDelay(2222) // ms
+        );
+    }
 
 
     static get $inject() {
-        return ['$state', MeetingsService.name, UserService.name];
+        return ['$state', '$mdToast', MeetingsService.name, UserService.name];
     }
 
 }
