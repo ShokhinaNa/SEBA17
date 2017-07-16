@@ -1,5 +1,7 @@
 'use strict';
 
+import { backendUrl } from './config/config';
+
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 
@@ -28,6 +30,7 @@ import ViewMeetingSuccess from './components/view-meeting-success/view-meeting-s
 import 'md-date-range-picker'; // don't ask
 import 'md-date-range-picker/dist/md-date-range-picker.css';
 
+
 let app = angular.module('app', [
     uiRouter,
     angularMaterial,
@@ -47,7 +50,7 @@ let app = angular.module('app', [
     ViewMeetingSuccess.name
 ]);
 
-app.constant('API_URL', 'http://localhost:3000/api');
+app.constant('API_URL', backendUrl);
 app.config(Routes);
 app.config(Middlewares);
 
