@@ -45,4 +45,4 @@ jspm_packages
 dist/*
 !dist/images
 
-config/config.js
+src/config/config.js

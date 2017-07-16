@@ -55,9 +55,7 @@ app.config(Routes);
 app.config(Middlewares);
 
 app.run(['$rootScope', '$state', function ($rootScope, $state) {
-    console.log('here');
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-        console.log('even here: ' + error);
         if (angular.isObject(error) && angular.isString(error.code)) {
             switch (error.code) {
                 case 'NOT_AUTHENTICATED':
