@@ -5,6 +5,7 @@
                 <md-card-title-text>
                     <span class="md-display-1">{{$ctrl.meeting.name}}</span>
                     <span class="md-headline">{{$ctrl.meeting.purpose}}</span>
+                    <p ng-if="$ctrl.isTimeslotArranged()" style="color: red">Meeting is arranged {{$ctrl.meeting.arranged_timeslot.toLocaleString()}}</p>
                     <div class="form-group">
                         <p>Location: {{$ctrl.meeting.location}}</p>
                         <p>Duration: {{$ctrl.meeting.duration}}min</p>

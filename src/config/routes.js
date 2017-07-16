@@ -19,7 +19,7 @@ import MeetingCreateSummaryTemplate from './../components/view-meeting-create/vi
 
 import ViewLandingPageComponent from './../components/view-landing-page/view-landing-page.component';
 import meetingSuccessTimeslotsTemplate from './../components/view-scheduling/view-scheduling-success.template.html'
-
+import meetingSuccessApproveTimeslotTemplate from './../components/view-scheduling-approve/view-scheduling-approve-success.template.html'
 
 resolveMeeting.$inject = ['$stateParams', MeetingsService.name];
 function resolveMeeting($stateParams,meetingService){
@@ -126,6 +126,10 @@ export default function config ($stateProvider, $urlRouterProvider){
         .state('successTimeslots', {
             url: '/successTimeslots',
             template: meetingSuccessTimeslotsTemplate,
+        })
+        .state('successTimeslot', {
+            url: '/meetingArranged',
+            template: meetingSuccessApproveTimeslotTemplate,
         })
         .state('error', {
             url: '/error',
