@@ -39,11 +39,24 @@ export default class UserService {
 
     getCurrentUser() {
         let token = this.$window.localStorage['jwtToken'];
-        if (!token) return {};
+        if (!token) {
+            let tempUserInviteId = this.$window.localStorage['tempUserInviteId'];
+            if (tempUserInviteId) {
+                return {
+                    _id: tempUserInviteId
+                }
+            } else {
+                return {};
+            }
+        }
 
         let base64Url = token.split('.')[1];
         let base64 = base64Url.replace('-', '+').replace('_', '/');
         return JSON.parse(this.$window.atob(base64)).user;
+    }
+
+    setTemporaryUser(inviteId) {
+        this.$window.localStorage['tempUserInviteId'] = inviteId;
     }
 
     findUserById(userId) {

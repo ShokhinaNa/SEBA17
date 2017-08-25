@@ -1,16 +1,37 @@
 <md-toolbar>
     <div class="md-toolbar-tools">
 
-        <a ui-sref="meetings" layout="row" id="home">
+        <a ui-sref="landingPage" layout="row" id="home">
             <img src="/images/logo.svg"/>
         </a>
 
         <span flex></span>
 
         <span flex="5"></span>
+        <md-menu ng-if="$ctrl.isAuthenticated()">
+            <md-button aria-label="Meetings" class="md-icon-button" ng-click="$ctrl.openMenu($mdMenu, $event)">
+                <md-icon><ng-md-icon icon="event" ></ng-md-icon></md-icon>
+            </md-button>
+            <md-menu-content width="4">
+                <md-menu-item>
+                    <md-button ng-click="$ctrl.meetingCreate($event)">
+                        <md-icon md-menu-align-target><ng-md-icon icon="add" ></ng-md-icon></md-icon>
+                        Add new meeting
+                    </md-button>
+                </md-menu-item>
+                <md-menu-divider></md-menu-divider>
+                <md-menu-item>
+                    <md-button ng-click="$ctrl.meetingsList($event)">
+                        <md-icon md-menu-align-target><ng-md-icon icon="list" ></ng-md-icon></md-icon>
+                        My meetings
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+
         <md-menu>
             <md-button aria-label="More" class="md-icon-button" ng-click="$ctrl.openMenu($mdMenu, $event)">
-                <md-icon><ng-md-icon icon="more_vert" ></ng-md-icon></md-icon>
+                <md-icon><ng-md-icon icon="account_circle" ></ng-md-icon></md-icon>
             </md-button>
             <md-menu-content width="4">
                 <md-menu-item ng-if="$ctrl.isAuthenticated()">

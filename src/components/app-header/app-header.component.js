@@ -46,6 +46,14 @@ class AppHeaderComponentController{
         this.$state.go('landingPage',{});
     }
 
+    meetingCreate(){
+        this.$state.go('meetingCreate.basic',{});
+    }
+
+    meetingsList(){
+        this.$state.go('meetings',{});
+    }
+
     login(){
         this.$state.go('login',{});
     }

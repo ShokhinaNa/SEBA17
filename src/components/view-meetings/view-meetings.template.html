@@ -1,3 +1,7 @@
+<div layout layout-align="center center">
+<span class="md-headline">My meetings</span>
+</div>
+
 <md-list>
 
     <md-list-item aria-label="Meeting" ng-click="$ctrl.details(meeting)" class="noright" ng-repeat="meeting in $ctrl.meetings">
@@ -6,6 +10,7 @@
 
         <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete(meeting)" >
             <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
+            <md-tooltip md-direction="bottom">Delete meeting</md-tooltip>
         </md-button>
 
         <md-divider ng-if="!$last"></md-divider>

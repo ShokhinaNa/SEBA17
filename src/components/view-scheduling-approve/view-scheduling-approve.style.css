@@ -1,0 +1,119 @@
+.scheduling {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.days {
+    display: flex;
+    min-width: 50%;
+    overflow-x: scroll;
+}
+.day {
+    list-style-type: none;
+    padding: 0 0.3em;
+    margin: 0;
+    border-right: 0.05em solid #ccc;
+    min-width: 6em;
+    position: relative;
+}
+
+.day-title {
+    margin: 0 0 16px 0;
+    font-size: 1em;
+    height: 48px;
+    text-align: center;
+}
+
+.choose-cursor {
+    display: none;
+    position: absolute;
+    background-color: #eee;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: 4.3em;
+}
+
+.day:hover .choose-cursor {
+    display: block;
+}
+
+.choose-cursor.valid {
+    background-color: rgba(28, 147, 0, 0.5);
+}
+
+.choose-drag-area {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.chosen-block {
+    display: none;
+    position: absolute;
+    background-color: rgba(28, 147, 0, 0.75);
+    width: 100%;
+    height: 0;
+    left: 0;
+    top: 0;
+}
+
+.chosen-block.here {
+    display: block;
+}
+
+.best-slot {
+    position: absolute;
+    background-color: rgba(28, 147, 0, 0.25);
+    width: 100%;
+    height: 0;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.hour {
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #f0f0f0;
+    height: 47px;
+}
+
+.hour:last-child {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.hour-header {
+    list-style-type: none;
+    padding: 55px 0 0 0;
+    margin: 0;
+}
+
+.header-hour {
+    padding: 0;
+    margin: 0;
+    height: 48px;
+    text-align: right;
+    color: #ccc;
+}
+
+#heroform {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#heroform button {
+    background-color: #F14742;
+    border-radius: 3px;
+    color: #fff;
+    padding: 0.5em 2em;
+    border: none;
+    font-size: 1.2em;
+    align-self: flex-end;
+}

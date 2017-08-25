@@ -1,5 +1,7 @@
 'use strict';
 
+import { backendUrl } from './config/config';
+
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 
@@ -20,10 +22,14 @@ import ViewMeeting from './components/view-meeting/view-meeting';
 import ViewLogin from './components/view-login/view-login';
 import ViewSignup from './components/view-signup/view-signup';
 import ViewMeetingCreate from './components/view-meeting-create/view-meeting-create';
-import ViewLandingPage from './components/view-landing-page/view-landing-page'
+import ViewLandingPage from './components/view-landing-page/view-landing-page';
+import ViewScheduling from './components/view-scheduling/view-scheduling';
+import ViewSchedulingApprove from './components/view-scheduling-approve/view-scheduling-approve';
+import ViewMeetingSuccess from './components/view-meeting-success/view-meeting-success';
 
 import 'md-date-range-picker'; // don't ask
 import 'md-date-range-picker/dist/md-date-range-picker.css';
+
 
 let app = angular.module('app', [
     uiRouter,
@@ -38,17 +44,18 @@ let app = angular.module('app', [
     ViewLogin.name,
     ViewSignup.name,
     ViewMeetingCreate.name,
-    ViewLandingPage.name
+    ViewLandingPage.name,
+    ViewScheduling.name,
+    ViewSchedulingApprove.name,
+    ViewMeetingSuccess.name
 ]);
 
-app.constant('API_URL', 'http://localhost:3000/api');
+app.constant('API_URL', backendUrl);
 app.config(Routes);
 app.config(Middlewares);
 
 app.run(['$rootScope', '$state', function ($rootScope, $state) {
-    console.log('here');
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-        console.log('even here: ' + error);
         if (angular.isObject(error) && angular.isString(error.code)) {
             switch (error.code) {
                 case 'NOT_AUTHENTICATED':

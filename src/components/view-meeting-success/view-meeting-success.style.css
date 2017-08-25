@@ -30,10 +30,6 @@ pre {
     margin: 30px;
 }
 
-.underline-text{
-    text-decoration: underline;
-}
-
 #status-buttons span {
     background: #FFFFFF;
     color: #4D5061;
@@ -102,9 +98,4 @@ md-date-range-picker {
 
 #heroform h2 {
     font-size: 2em;
-}
-
-md-toast.md-center {
-    left: 50%;
-    transform: translate3d(-50%, 0, 0);
 }

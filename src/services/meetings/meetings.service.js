@@ -29,7 +29,7 @@ export default class MeetingsService {
         let url = `${ this.resourceUrl }${ id }`;
         return this.$http.get(url).then(responce => {
             return new Promise((resolve, reject) => {
-                resolve(responce.data);
+                resolve(convertDatesFromStrings(responce.data));
             });
         })
     }
@@ -61,4 +61,51 @@ export default class MeetingsService {
         })
     }
 
+    saveTimeslots(meeting) {
+        let url = `${ this.resourceUrl }${meeting._id}/timeslots`;
+        return this.$http.put(url,meeting).then(responce => {
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+            });
+        })
+    }
+
+    saveArrangedTimeSlot(meeting) {
+        let url = `${ this.resourceUrl }${meeting._id}/arrangedtimeslot`;
+        return this.$http.put(url,meeting).then(responce => {
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+            });
+        })
+    }
+
+    importCalendar(meetingId, calendarUrl, userId) {
+        let url = `${ this.resourceUrl }${meetingId}/importCalendar/${userId}`;
+        return this.$http.put(url,{calendarUrl: calendarUrl}).then(responce => {
+            return new Promise((resolve, reject) => {
+                resolve(responce.data.map(slot => {
+                    slot.range[0] = new Date(slot.range[0]);
+                    slot.range[1] = new Date(slot.range[1]);
+                    return slot
+                }));
+            });
+        })
+    }
+}
+
+function convertDatesFromStrings(meeting) {
+    meeting.range[0] = new Date(meeting.range[0]);
+    meeting.range[1] = new Date(meeting.range[1]);
+    meeting.arranged_timeslot = new Date(meeting.arranged_timeslot);
+    for (let bestSlot of meeting.bestSlots) {
+        bestSlot.range[0] = new Date(bestSlot.range[0]);
+        bestSlot.range[1] = new Date(bestSlot.range[1]);
+    }
+    for (let availability of meeting.availabilities) {
+        for (let slot of availability.slots) {
+            slot.range[0] = new Date(slot.range[0]);
+            slot.range[1] = new Date(slot.range[1]);
+        }
+    }
+    return meeting;
 }

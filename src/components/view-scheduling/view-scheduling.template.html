@@ -1,0 +1,48 @@
+<md-card>
+    <md-card-title>
+        <md-card-title-text  layout-align="center center">
+            <span class="md-display-1">Your availability for {{$ctrl.meeting.name}}</span>
+            <span style="text-align: center">Just click & drag to block time ranges when you are busy, or import your calendar.</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-actions>
+        <div>
+            <p>{{$ctrl.meeting.purpose}}</p>
+            <md-input-container>
+                <label>Calendar Feed URL</label>
+                <input name="calendar-url" class="form-control" ng-model="$ctrl.calendarUrl" type="text" style="width: 20em">
+            </md-input-container>
+            <ng-button ng-click="$ctrl.importCalendar()" class="md-raised md-primary" style="position: relative; vertical-align: top; top: 1.6em; background-color: #eee; padding: 0.3em; border-radius: 0.2em; cursor: pointer;"
+                >Import Calendar</ng-button>
+        </br>
+            </br>
+        </div>
+        <div class="scheduling">
+            <ul class="hour-header">
+                <li class="header-hour" ng-repeat="h in $ctrl.choosableHours">{{h}}:00</li>
+            </ul>
+
+            <div class="days">
+            <ul class="day" ng-repeat="day in $ctrl.getHumanMeetingDaysInRange()">
+                <h3 class="day-title">{{day}}</h3>
+                <div class="drag-area" ng-mousedown="$ctrl.start($event)"
+                     ng-mousemove="$ctrl.move($event)" ng-mouseup="$ctrl.stop($index)"></div>
+                <div class="slot" ng-repeat="slot in $ctrl.getSlotsForDay($index)"
+                     ng-style="{'top': slot.startY, 'height': slot.heightY}"
+                     ng-mousedown="$ctrl.removeSlot(slot.index)"></div>
+                <div class="cursor" ng-style="{'top':$ctrl.mouseY}"></div>
+                <div class="preview-block" ng-style="{'top':$ctrl.startY, 'height': $ctrl.heightY}"></div>
+                <li class="hour" ng-repeat="h in $ctrl.choosableHours"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="heroform">
+        <div class="form-group" layout="row" layout-align="space-around center" layout-margin="10px">
+            <button class="md-raised" style="background-color:#4D5061;color:white" ng-click="$ctrl.cancel()">Cancel</button>
+            <button class="md-raised md-primary" type="submit" ng-click="$ctrl.saveTimeslots()">Save</button>
+        </div>
+    </div>
+    </md-card-actions>
+</md-card>
+
